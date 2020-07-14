@@ -1,0 +1,34 @@
+<ion-header class="header-bg">
+  <ion-toolbar mode="ios">
+    <ion-buttons>
+      <ion-back-button color="light" icon="close-circle-outline" text="" class="pl-1">
+        <ion-icon slot="start" name="close-circle-outline" color="light"></ion-icon>
+      </ion-back-button>
+    </ion-buttons>
+    <ion-title color="light">conversation</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content color="light">
+  <div class="relative h-full flex flex-col">
+    <div class="flex-grow overflow-y-auto">
+      <div class="m-2">
+        <div class="text-xs uppercase tracking-wide font-medium">John Doe &middot; 12:05</div>
+        <div class="text-sm max-w-xs mt-1 p-2 rounded bg-white inline-block">
+          Je suis un long message envoye
+        </div>
+      </div>
+      <div class="m-2 text-right">
+        <div class="text-xs uppercase tracking-wide font-medium">Moi</div>
+        <div class="text-sm inline-block max-w-xs mt-1 p-2 rounded bg-teal-500 text-white text-left">
+          Lorem ipsum dolor sit amet.
+        </div>
+      </div>
+    </div>
+    <div class="bg-transparent p-3 flex items-center">
+        <input type="text" class="flex-grow px-3 py-2 rounded-full shadow-xs" placeholder="Entrez votre message">
+        <ion-icon name="paper-plane-outline" class="p-2 ml-2 bg-teal-500 flex-shrink-0 shadow rounded-full text-white text-xl"></ion-icon>
+    </div>
+  </div>
+
+</ion-content>

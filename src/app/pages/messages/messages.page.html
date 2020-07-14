@@ -1,5 +1,45 @@
 <app-header [title]="'messagerie'" [defaultBack]="'/tabs/tabs/tab5'"></app-header>
 
-<ion-content>
+<ion-content color="light">
+<div>
+    <div class="grid grid-cols-1 divide-y divide-gray-500 bg-white px-2">
+        <div class="flex flex-col py-4 " routerDirection="forward" routerLink="/conversation">
+            <div class="flex items-baseline justify-between">
+                <span class="text-sm uppercase tracking-wide font-semibold text-teal-700">John Doe</span>
+                <span class="text-sm text-gray-600 font-semibold">12:05</span>
+            </div>
+            <div class="inline-flex items-center">
+                <span class="mr-1">
+                    <svg class="w-4 h-4 text-gray-600" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" stroke="currentColor"><path d="M5 13l4 4L19 7"></path></svg>
+                </span>
+                <span class="text-sm text-gray-600 whitespace-no-wrap truncate">Votre dernier message avec John Doe est ce lui la</span>
+            </div>
+        </div>
+        <div class="flex flex-col py-4">
+            <div class="flex items-baseline justify-between">
+                <span class="text-sm uppercase tracking-wide font-semibold text-teal-700">John Doe</span>
+                <span class="text-sm text-gray-600 font-semibold">12:05</span>
+            </div>
+            <div class="inline-flex items-center">
+                <span class="mr-1">
+                    <svg class="w-4 h-4 text-gray-600" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" stroke="currentColor"><path d="M5 13l4 4L19 7"></path></svg>
+                </span>
+                <span class="text-sm text-gray-600 whitespace-no-wrap truncate">Votre dernier message avec John Doe est ce lui la</span>
+            </div>
+        </div>
+        <div class="flex flex-col py-4">
+            <div class="flex items-baseline justify-between">
+                <span class="text-sm uppercase tracking-wide font-semibold text-teal-700">John Doe</span>
+                <span class="text-sm text-gray-600 font-semibold">12:05</span>
+            </div>
+            <div class="inline-flex items-center">
+                <span class="mr-1">
+                    <svg class="w-4 h-4 text-gray-600" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" stroke="currentColor"><path d="M5 13l4 4L19 7"></path></svg>
+                </span>
+                <span class="text-sm text-gray-600 whitespace-no-wrap truncate">Votre dernier message avec John Doe est ce lui la</span>
+            </div>
+        </div>
 
+    </div>
+</div>
 </ion-content>

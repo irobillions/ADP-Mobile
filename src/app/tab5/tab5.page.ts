@@ -55,7 +55,7 @@ export class Tab5Page implements OnInit {
       },
     {
       title: 'Promotions et ventes flash',
-      url: '',
+      url: '/promotions-and-deals',
       icon: 'wallet'
     },
     {

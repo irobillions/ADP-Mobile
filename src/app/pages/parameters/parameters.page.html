@@ -1,5 +1,30 @@
 <app-header [title]="'parameters'" [defaultBack]="'/tabs/tabs/tab5'"></app-header>
 
-<ion-content>
-
+<ion-content color="light">
+    <div>
+        <div class="px-4 py-1 text-sm uppercase font-semibold tracking-wide text-gray-600">Auto Parts Deal</div>
+        <div>
+            <div class="px-4 py-3 bg-white border-t border-b border-gray-400 flex justify-between items-center">
+                <span>Notifications</span>
+                <ion-toggle color="primary" class="ion-no-padding"></ion-toggle>
+            </div>
+            <div class="px-4 py-3 bg-white border-t border-b border-gray-400 flex justify-between items-baseline">
+                <span>Pays</span>
+                <ion-select class="ion-no-padding" value="Tunisie">
+                    <ion-select-option value="France">France</ion-select-option>
+                    <ion-select-option value="Tunisie">Tunisie</ion-select-option>
+                </ion-select>
+            </div>
+            <div class="px-4 py-3 bg-white border-t border-b border-gray-400">
+                <span>Parametres de messagerie</span>
+            </div>
+            <div class="px-4 py-3 bg-white border-t border-b border-gray-400 flex justify-between items-baseline">
+                <span>Options de paiement</span>
+                <ion-select class="ion-no-padding" value="Domicile">
+                    <ion-select-option value="En-Ligne">En Ligne</ion-select-option>
+                    <ion-select-option value="Domicile">Domicile</ion-select-option>
+                </ion-select>
+            </div>
+        </div>
+    </div>
 </ion-content>

@@ -1,0 +1,65 @@
+<app-header [title]="'Sales'" [defaultBack]="'/tabs/tabs/tab5'"></app-header>
+
+<ion-content color="light">
+  <div class="flex px-2 items-center justify-between bg-white py-2 shadow-md">
+    <h2 class="font-medium m-0">Listes</h2>
+    <div>
+      <span class="inline-flex">
+      <svg class="w-6 h-6 text-gray-600" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" stroke="currentColor"><path d="M3 4a1 1 0 011-1h16a1 1 0 011 1v2.586a1 1 0 01-.293.707l-6.414 6.414a1 1 0 00-.293.707V17l-4 4v-6.586a1 1 0 00-.293-.707L3.293 7.293A1 1 0 013 6.586V4z"></path></svg>
+        <ion-select class="mx-2 ion-no-padding" value="placeholder">
+          <ion-select-option value="placeholder" disabled>Trier par</ion-select-option>
+          <ion-select-option value="higher-prices">Prix croissant</ion-select-option>
+          <ion-select-option value="lower-prices">Prix decroissant</ion-select-option>
+        </ion-select>
+      </span>
+    </div>
+  </div>
+  <div>
+    <div class="mx-2 my-4">
+      <div class="flex p-2 rounded-md shadow-sm bg-white">
+        <div class=" flex ion-no-padding items-center relative">
+          <ion-img src="../assets/images/frein.jpg" class="w-2/5 p-3 flex-shrink-0 object-fit object-center"></ion-img>
+          <div class="flex flex-col pad-5 flex-grow">
+            <ion-label class="ion-no-margin w-40 truncate">
+              Frein Avant droit SEAT IBIZA
+            </ion-label>
+            <div class="my-container-label flex flex-col">
+              <ion-label class="my-label-title block">Toyota</ion-label>
+              <ion-label color="medium block">Origine</ion-label>
+              <div>
+                <span class="price text-sm text-gray-600 line-through"> {{ 222 | currency }}</span>
+                <span class="price font-semibold"> {{ 150 | currency }}</span>
+              </div>
+              <div class="span-container block">
+                <span>
+                  <ion-icon class="iconStar" name="star"></ion-icon>
+                </span>
+                <span>
+                  <ion-icon class="iconStar" name="star"></ion-icon>
+                </span>
+                <span>
+                  <ion-icon class="iconStar" name="star"></ion-icon>
+                </span>
+                <span>
+                  <ion-icon class="iconStar" name="star"></ion-icon>
+                </span>
+                <span>
+                  <ion-icon class="iconStar" name="star"></ion-icon>
+                </span>
+              </div>
+            </div>
+          </div>
+          <div class="absolute inset-y-0 right-0 flex flex-col items-center justify-between">
+            <div class="pt-2 pr-2 wish-list-icon">
+              <ion-icon name="trash" color="danger"></ion-icon>
+            </div>
+            <div class="pt-2 pr-2 wish-list-icon">
+              <ion-icon name="cart-outline"  color="success"></ion-icon>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</ion-content>

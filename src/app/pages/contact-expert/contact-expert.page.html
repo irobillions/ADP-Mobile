@@ -1,5 +1,33 @@
 <app-header [title]="'contact expert'" [defaultBack]="'/tabs/tabs/tab5'"></app-header>
 
-<ion-content>
-
+<ion-content color="light">
+<div>
+    <ion-card>
+        <form action="" class="grid grid-cols-1 gap-4 p-3">
+            <div class="flex flex-col">
+                <label class="text-gray-700 m-0">Nom</label>
+                <input type="text" class="p-2 border-b border-gray-500 focus:outline-none focus:border-teal-500 transition ease-in-out duration-300">
+            </div>
+            <div class="flex flex-col">
+                <label class="text-gray-700 m-0">Adresse electronique</label>
+                <input type="text" class="p-2 border-b border-gray-500 focus:outline-none focus:border-teal-500 transition ease-in-out duration-300">
+            </div>
+            <div class="flex flex-col">
+                <label class="text-gray-700 m-0">Phone</label>
+                <input type="text" class="p-2 border-b border-gray-500 focus:outline-none focus:border-teal-500 transition ease-in-out duration-300">
+            </div>
+            <div class="flex flex-col">
+                <label class="text-gray-700 m-0">Sujet</label>
+                <input type="text" class="p-2 border-b border-gray-500 focus:outline-none focus:border-teal-500 transition ease-in-out duration-300">
+            </div>
+            <div class="flex flex-col">
+                <label class="text-gray-700">Message</label>
+                <textarea rows="5" class="border p-2 border-gray-500 focus:outline-none focus:border-teal-500 transition ease-in-out duration-300"></textarea>
+            </div>
+            <div>
+                <ion-button color="success" class="w-full">Je suis un bouton pour ion</ion-button>
+            </div>
+        </form>
+    </ion-card>
+</div>
 </ion-content>

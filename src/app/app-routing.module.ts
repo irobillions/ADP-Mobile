@@ -187,6 +187,14 @@ const routes: Routes = [
   {
     path: 'quote-view',
     loadChildren: () => import('./pages/quote-view/quote-view.module').then( m => m.QuoteViewPageModule)
+  },
+  {
+    path: 'promotions-and-deals',
+    loadChildren: () => import('./pages/promotions-and-deals/promotions-and-deals.module').then( m => m.PromotionsAndDealsPageModule)
+  },
+  {
+    path: 'conversation',
+    loadChildren: () => import('./pages/conversation/conversation.module').then( m => m.ConversationPageModule)
   }
 ];
 @NgModule({
