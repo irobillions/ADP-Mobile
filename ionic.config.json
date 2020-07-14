@@ -1,5 +1,8 @@
 {
   "name": "ADP-mobile",
-  "integrations": {},
+  "integrations": {
+    "capacitor": {},
+    "cordova": {}
+  },
   "type": "angular"
 }

@@ -1,0 +1,19 @@
+<app-header [title]="'Evaluations'" [defaultBack]="'/product-details/'+ productId"></app-header>
+
+<ion-content color="light">
+  <div class="card border-t-light border-b-light" *ngIf="product">
+    <div *ngIf="product.comments.length !== 0">
+      <div *ngFor="let comment of product.comments; let i = index" class="border-t-light">
+        <app-comment-post [product]="product" [comment]="comment"></app-comment-post>
+        <div class="ion-padding-start">
+          <ion-button fill="outline" size="small">
+            Signaler
+          </ion-button>
+        </div>
+      </div>
+    </div>
+    <div *ngIf="product.comments.length === 0" class="ion-text-center">
+      <ion-label class="ion-padding-start ion-padding-top ion-text-center">Aucun commentaire sur ce produit</ion-label>
+    </div>
+  </div>
+</ion-content>

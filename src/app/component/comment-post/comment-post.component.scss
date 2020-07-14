@@ -1,0 +1,39 @@
+.w-3 {
+  width: 3rem;
+}
+
+.h-3 {
+  height: 3rem;
+}
+.iconStar {
+  color: #f4e242;
+  vertical-align: middle;
+}
+.flex {
+  display: flex;
+}
+
+.flex-row {
+  flex-direction: row;
+}
+
+.flex-col {
+  flex-direction: column;
+}
+
+.monospace {
+  font-family: "Courier New", serif;
+  font-weight: 200;
+  font-style: italic;
+}
+
+.bold {
+  font-weight: bold;
+  font-family: "Times New Roman", Arial, serif;
+}
+.text-sm {
+  font-size: .875rem;
+}
+.flex-grow {
+  flex-grow: 1;
+}

@@ -1,17 +1,30 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
-      Tab 1
-    </ion-title>
-  </ion-toolbar>
-</ion-header>
+<app-search-bar></app-search-bar>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Tab 1</ion-title>
-    </ion-toolbar>
-  </ion-header>
-
-  <app-explore-container name="Tab 1 page"></app-explore-container>
+<ion-content [fullscreen]="true" color="light">
+    <ion-grid>
+        <ion-row>
+            <ion-col size="1">
+                <div class="slider-nav arrow-prev" (click)="slidePrev(sliderTwo, slideWithNav2)">
+                    <ion-icon  class="custon-nav" name="chevron-back-outline" [class.disabled]="sliderTwo.isBeginningSlide"></ion-icon>
+                </div>
+            </ion-col>
+            <ion-col size="10">
+                 <ion-card (click)="goToCarModelList()">
+                    <ion-slides [options]="slideOptsTwo" #slideWithNav2 (ionSlideDidChange)="SlideDidChange(sliderTwo, slideWithNav2)">
+                        <ion-slide *ngFor="let item of slidesItems">
+                            <ion-card class="brand" mode="md" color="light">
+                                <img src="{{ item.url }}" alt="">
+                                <ion-label> {{ item.designation }}</ion-label>
+                            </ion-card>
+                        </ion-slide>
+                    </ion-slides>
+                </ion-card>
+            </ion-col>
+            <ion-col size="1">
+                <div class="slider-nav arrow-next" (click)="slideNext(sliderTwo, slideWithNav2)">
+                    <ion-icon class="custon-nav" name="chevron-forward-outline" [class.disabled]="sliderTwo.isEndSlide"></ion-icon>
+                </div>
+            </ion-col>
+        </ion-row>
+    </ion-grid>
 </ion-content>

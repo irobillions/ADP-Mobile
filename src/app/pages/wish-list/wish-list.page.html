@@ -1,0 +1,29 @@
+<app-header [title]="'wish list'" [defaultBack]="'/tabs/tabs/tab5'"></app-header>
+
+<ion-content color="light">
+    <div class="flex px-2 items-center justify-between bg-white py-2 shadow-md">
+        <h2 class="font-medium m-0">Listes</h2>
+        <ion-button class="text-blue-500 text-sm inline-flex ion-no-margin ion-no-padding items-center" fill="clear" (click)="wishListForm()">
+            <svg class="w-4 h-4 mr-1" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" stroke="currentColor"><path d="M12 4v16m8-8H4"></path></svg>
+            <span class="pr-1">
+                Creer une liste
+            </span>
+        </ion-button>
+    </div>
+    <div class="mx-2 my-4" (click)="goWishList()">
+        <div class="flex bg-white p-2 rounded-md shadow-sm items-center">
+            <div class="flex flex-grow">
+                <div class="w-1/5 flex-shrink-0 mr-3">
+                    <img src="../assets/icon/wishlist-svgrepo-com.svg" alt="">
+                </div>
+                <div class="flex w-4/5 flex-col">
+                    <span>Liste #1</span>
+                    <span class="text-gray-700 text-sm">Par defaut</span>
+                </div>
+            </div>
+            <span class="flex-shrink-0">
+<svg fill="none" class="w-6 h-6 text-gray-500" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" stroke="currentColor"><path d="M9 5l7 7-7 7"></path></svg>
+            </span>
+        </div>
+    </div>
+</ion-content>

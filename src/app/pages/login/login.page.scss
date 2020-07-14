@@ -1,0 +1,97 @@
+.header-bg {
+  background-color: #70A9AC;
+}
+#rounded {
+  width: 100%;
+  height: 100px;
+  -moz-border-radius: 50px;
+  -webkit-border-radius: 50px;
+  border-radius: 10px;
+  margin-bottom: 10px;
+}
+
+#container {
+  width: 300px;
+  margin-left:auto;
+  margin-right: auto;
+}
+
+.login {
+  text-align: center;
+  font-size: 12px;
+  margin-top: 16px;
+
+  a {
+    color: #8c36a5;
+    font-weight: 400;
+    margin-left: 5px;
+  }
+}
+
+.label {
+  font-weight: 400;
+  font-size: 15px;
+}
+.fullheight {
+  height: 100%;
+}
+
+.xc {
+  align-items: center;
+  justify-content: center;
+}
+
+.page-login {
+
+  .login-content {
+    background: #ffffff;
+
+    .logo-row {
+      padding-top: 50px;
+      padding-bottom: 20px;
+    }
+
+    .login-box {
+      background: #399F8B;
+      padding: 20px 20px 0px 20px;
+      margin-top: 30px;
+    }
+
+    ion-row {
+      align-items: center;
+      text-align: center;
+    }
+
+    ion-item {
+      border-radius: 30px !important;
+      padding-left: 30px !important;
+      font-size: 0.9em;
+      margin-bottom: 10px;
+      border: 1px solid #ffffff;
+      border-bottom: 0 !important;
+      box-shadow: none !important;
+    }
+
+    .signin-col {
+      margin: 0px 16px 0px 16px;
+      padding-bottom: 20px;
+    }
+
+    .item-inner {
+      border-bottom-color: #ffffff !important;
+      box-shadow: none !important;
+    }
+
+    .submit-btn {
+      background: #51CFB1;
+      border-radius: 30px !important;
+      border: 1px solid #ffffff;
+    }
+
+    .register-btn {
+      color: #ffffff;
+      font-size: 0.8em;
+    }
+  }
+
+}

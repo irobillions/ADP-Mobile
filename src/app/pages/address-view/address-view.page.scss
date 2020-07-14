@@ -1,0 +1,20 @@
+.header-bg {
+   background-color: #70A9AC;
+
+   ion-header {
+     background-color: #70A9AC;
+   }
+   ion-toolbar {
+     --background: #70A9AC;
+   }
+ }
+
+.logo-row {
+  padding-top: 0;
+  padding-bottom: 0;
+}
+
+.aligns-div {
+  display: flex;
+  align-items: center;
+}

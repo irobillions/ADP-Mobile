@@ -1,0 +1,14 @@
+<ion-header class="header-bg" [translucent]="true">
+  <ion-toolbar>
+    <ion-searchbar placeholder="Référence ou mots clés" [animated]="true" [showCancelButton]="'focus'" color="light" (ionFocus)="openSearchModal()"></ion-searchbar>
+    <ion-buttons slot="end" style="background-color: #70A9AC;">
+      <ion-button class="button-cart-not-bg cart" color="dark" (click)="openCart()">
+        <ion-badge class="cart-length" color="undefined">{{ cartItemCount | async }}</ion-badge>
+        <ion-icon ios="cart-outline" md="cart-sharp" style="position: relative; font-size: 2em; background-color: #70A9AC"></ion-icon>
+      </ion-button>
+      <ion-button class="button-cart-not-bg not" color="dark" (click)="openNotificationModal()">
+        <ion-icon ios="notifications-outline" md="notifications-sharp" style="position: relative; font-size: 1.6em; background-color: #70A9AC"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>

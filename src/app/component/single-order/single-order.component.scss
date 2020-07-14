@@ -1,0 +1,81 @@
+.aligns-div {
+  display: flex;
+}
+
+.cmd {
+  ion-label {
+    font-weight: bold;
+    font-size: 13px;
+    padding-top: 5px;
+    margin-top: 0;
+  }
+}
+.full-right {
+  float: left;
+}
+.status-cls {
+  float: right;
+  clear: right;
+  padding-left: inherit;
+}
+.infos-cmd {
+  font-size: 12px;
+  font-weight: bold;
+  ion-icon {
+    float: right;
+  }
+}
+.item {
+  background-color: white;
+  width: auto;
+  padding: 0;
+  border: 0.5px solid lightgray;
+  margin: 0;
+}
+.cmd-box {
+  background-color: lightcyan;
+  border: 2px solid black;
+}
+.border-item {
+  border-bottom: 8px solid var(--ion-color-light);
+  height: 100px;
+}
+.grids {
+  padding-top: 0;
+  margin-top: 0;
+  ion-row {
+    padding-top: 0;
+    margin-top: 0;
+    ion-col {
+      padding-bottom: 10px;
+    }
+  }
+}
+.row-infos {
+  ion-col {
+    padding-top: 0;
+    margin-top: 0;
+    ion-label {
+      font-weight: bold;
+      font-size: 13px;
+      padding-top: 0;
+      margin-top: 0;
+    }
+  }
+}
+
+.row-info {
+  padding-bottom: 0;
+  ion-col {
+    padding-top: 0;
+    margin-top: 0;
+    ion-label {
+      font-weight: bold;
+      padding-top: 0;
+      margin-top: 0;
+    }
+    ion-icon {
+      float: right;
+    }
+  }
+}

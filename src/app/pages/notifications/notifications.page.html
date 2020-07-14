@@ -1,0 +1,23 @@
+<ion-header class="header-bg">
+  <ion-toolbar mode="ios">
+   <ion-buttons slot="start">
+     <ion-button (click)="close()" fill="clear">
+       <ion-icon name="close-circle-outline" color="light"></ion-icon>
+     </ion-button>
+   </ion-buttons>
+    <ion-buttons slot="end">
+      <ion-button class="button-cart-not-bg cart" color="dark" (click)="openCart()" #cart>
+        <ion-badge class="cart-length" color="undefined">{{ cartItemCount | async }}</ion-badge>
+        <ion-icon ios="cart-outline" md="cart-sharp" style="position: relative; font-size: 2em; background-color: #70A9AC"></ion-icon>
+      </ion-button>
+      <ion-button class="button-cart-not-bg not" color="dark">
+        <ion-icon ios="notifications-outline" md="notifications-sharp" style="position: relative; font-size: 1.6em; background-color: #70A9AC"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title color="light">Notifications</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+</ion-content>

@@ -1,0 +1,162 @@
+<ion-header class="header-bg">
+  <ion-toolbar mode="ios">
+    <ion-buttons>
+      <ion-back-button defaultHref="/cart" color="light" icon="close-circle-outline" text="" class="pl-1">
+        <ion-icon slot="start" name="close-circle-outline" color="light"></ion-icon>
+      </ion-back-button>
+    </ion-buttons>
+    <ion-title color="light">Paid and delivery</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content color="light">
+  <div class="header shadow-xs">
+    <ion-toolbar class="toolbar ion-no-padding">
+      <ion-segment [(ngModel)]="pageType" (ionChange)="segmentChanged($event)" mode="md">
+        <ion-segment-button value="1" layout="icon-start">
+          <ion-icon name="navigate-outline"></ion-icon>
+          <ion-label class="text-xs">Address</ion-label>
+        </ion-segment-button>
+        <ion-segment-button value="2" layout="icon-start" [disabled]="stepOne">
+          <ion-icon name="earth-outline"></ion-icon>
+          <ion-label>Delivery</ion-label>
+        </ion-segment-button>
+        <ion-segment-button value="3" layout="icon-start" [disabled]="stepTwo">
+          <ion-icon name="card-outline"></ion-icon>
+          <ion-label>Paiement</ion-label>
+        </ion-segment-button>
+      </ion-segment>
+    </ion-toolbar>
+  </div>
+  <div [ngSwitch]="pageType">
+    <div *ngSwitchCase="1">
+      <ion-grid>
+        <ion-row>
+          <ion-col size-md="6" offset-md="3">
+            <div>
+              <div *ngIf="address && address.length !== 0">
+                <ion-radio-group (ionChange)="getAddressChecked($event)" value="{{ address[0].id }}">
+                  <ion-list class="shadow-sm">
+                    <div *ngFor="let adr of address; let i = index">
+                      <ion-card *ngIf="i<2">
+                        <ion-card-header class="address-card-header ion-no-padding">
+                          <strong class="pl-3">{{ user.firstName +' '+ user.lastName }}</strong>
+                          <ion-buttons>
+                            <ion-button fill="clear" (click)="createModal($event, adr.id)">
+                              <ion-icon name="create-outline"></ion-icon>
+                            </ion-button>
+                          </ion-buttons>
+                        </ion-card-header>
+                        <ion-card-content class="ion-no-padding pl-3">
+                          <div class="adr-ct">
+                            <ion-radio slot="start" value="{{ adr.id }}" color="success" mode="md"></ion-radio>
+                            <div class="address-infos">
+                              <ion-label>{{ adr.street }}</ion-label><br>
+                              <ion-label>{{ adr.city +', '+ adr.zipCode }}</ion-label><br>
+                              <ion-label>{{ adr.country }}</ion-label>
+                            </div>
+                          </div>
+                        </ion-card-content>
+                      </ion-card>
+                    </div>
+                  </ion-list>
+                </ion-radio-group>
+              </div>
+              <div *ngIf="address && address.length === 0" class="no-address ion-text-center">
+                <p class="text-danger text-format">
+                  Vous n'avez aucune addresse disponible, ajouter en a votre carnet d'addresse!
+                </p>
+              </div>
+              <ion-list>
+                <div>
+                  <ion-button class="bg-teal-500 text-white py-1 rounded" routerDirection="forward" routerLink="/add-address" fill="clear" expand="block">
+                    Ajouter une nouvelle addresse
+                  </ion-button>
+                </div>
+              </ion-list>
+            </div>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </div>
+    <div *ngSwitchCase="2">
+      <div class="mt-2">
+        <ion-radio-group (ionChange)="getCheckedDeliveryMode($event)" value="'standard'">
+          <ion-list class="shadow-sm">
+            <ion-card *ngFor="let delivery of ['standard','express']">
+              <ion-card-header class="address-card-header">
+                <strong>{{ delivery }}</strong>
+              </ion-card-header>
+              <ion-card-content>
+                <div class="adr-ct">
+                  <ion-radio slot="start" value="{{ delivery }}" color="success" mode="md"></ion-radio>
+                  <div class="address-infos">
+                    <ion-label>Livraison sous 4 a 5 jours maximum</ion-label>
+                  </div>
+                </div>
+              </ion-card-content>
+            </ion-card>
+          </ion-list>
+        </ion-radio-group>
+      </div>
+    </div>
+    <div class="bg-light" *ngSwitchCase="3">
+      <ion-list class="mt-2">
+        <form>
+          <div class="p-2">
+            <div class="form-group">
+              <label class="text-xs">Numero de carte de credit:</label>
+              <div class="row">
+                <div class="col-md-4">
+                  <div class="input-group shadow-xs">
+                    <input class="form-control py-2 border-right-0 border bg-light shadow-xs">
+                    <span class="input-group-append">
+                    <div class="input-group-text bg-transparent"><ion-icon name="card-outline"></ion-icon></div>
+                  </span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col">
+                <label class="text-xs">Code sécurité</label>
+                <input type="text" class="form-control bg-light shadow-xs" placeholder="CVV">
+              </div>
+              <div class="col">
+                <label class="text-xs">Date d'expiration</label>
+                <div class="input-group">
+                <span class="input-group">
+                    <div class="input-group-text bg-light form-control shadow-xs">
+                      <ion-icon name="calendar-outline"></ion-icon>
+                      <ion-datetime value="2019-10-01T15:43:40.394Z" display-timezone="utc" display-format="MM/YY" picker-format="MMM YYYY" class="pl-6"></ion-datetime>
+                    </div>
+                  </span>
+                </div>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="formGroupExampleInput" class="text-xs pt-2">Nom et prénom</label>
+              <input type="text" class="form-control bg-light shadow-xs" id="formGroupExampleInput" placeholder="full name">
+            </div>
+          </div>
+        </form>
+      </ion-list>
+    </div>
+  </div>
+</ion-content>
+<ion-footer class="bg-white">
+  <div class="p-2 shadow-xl m-2 rounded mt-8">
+    <div class="grid grid-cols-2 rounded gap-2">
+      <span class="text-gray-700">Order</span>
+      <span class="text-right">122</span>
+      <span class="text-gray-700">Delivery</span>
+      <span class="text-right">10</span>
+      <span class="text-gray-700">Summary</span>
+      <span class="text-right">122</span>
+    </div>
+  </div>
+  <div class="p-2">
+    <ion-button class="w-full bg-teal-500 text-white py-1 rounded" fill="clear" (click)="nextStep()" *ngIf="next">Suivant</ion-button>
+    <ion-button class="w-full bg-teal-500 text-white py-1 rounded" fill="clear" *ngIf="!next" routerDirection="forward" routerLink="/summary">Confirm</ion-button>
+  </div>
+</ion-footer>

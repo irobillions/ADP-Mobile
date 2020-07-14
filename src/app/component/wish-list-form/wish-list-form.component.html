@@ -1,0 +1,36 @@
+<div class="header-bg">
+  <ion-toolbar mode="ios">
+    <ion-buttons slot="start">
+      <ion-button (click)="close()" fill="clear">
+        <ion-icon name="close-circle-outline" color="light"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title color="light">Nouveau Devis</ion-title>
+  </ion-toolbar>
+</div>
+
+<ion-content>
+  <div>
+    <ion-grid>
+      <ion-row>
+        <ion-col>
+          <form>
+            <div class="form-group">
+              <ion-label class="text-xs pt-2">Nom</ion-label>
+              <input type="text" class="form-control bg-light shadow-xs">
+            </div>
+            <div class="form-group">
+              <ion-label class="text-xs pt-2">sujet</ion-label>
+              <input type="text" class="form-control bg-light shadow-xs">
+            </div>
+            <div>
+              <ion-button expand="full" class="w-full bg-teal-500 text-white py-2" fill="clear">
+                confirm
+              </ion-button>
+            </div>
+          </form>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </div>
+</ion-content>

@@ -1,0 +1,81 @@
+<ion-header class="header-bg">
+  <ion-toolbar mode="ios">
+    <ion-buttons slot="start">
+      <ion-button (click)="close()" fill="clear">
+        <ion-icon name="close-circle-outline" color="light"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title color="light">Nouveau Devis</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" color="light">
+  <ion-grid>
+    <ion-row>
+      <ion-col size-md="6" offset-md="3">
+        <ion-card>
+          <ion-card-header>
+            <ion-card-title>Demander un devis</ion-card-title>
+          </ion-card-header>
+          <ion-card-content>
+            <form>
+              <div class="form-group">
+                <ion-label>Nom complet (*)</ion-label>
+                <ion-input type="text" class="form-control bg-light"></ion-input>
+              </div>
+              <div class="form-group">
+                <ion-label>Email (*)</ion-label>
+                <ion-input type="email" inputmode="email" class="form-control bg-light"></ion-input>
+              </div>
+              <div class="form-group">
+                <ion-label>
+                  Téléphone (*)
+                </ion-label>
+                <div class="form-inline">
+                  <ion-select value="216">
+                    <ion-select-option value="216">+216</ion-select-option>
+                    <ion-select-option value="242">+242</ion-select-option>
+                    <ion-select-option>+337</ion-select-option>
+                  </ion-select>
+                  <ion-input type="text" class="form-control bg-light"></ion-input>
+                </div>
+              </div>
+              <div class="form-group">
+                <ion-label>Immatriculation</ion-label>
+                <ion-input type="text" class="form-control bg-light"></ion-input>
+              </div>
+              <div class="form-group">
+                <ion-label>N° VIN</ion-label>
+                <ion-input type="text" class="form-control bg-light"></ion-input>
+              </div>
+              <div class="form-group">
+                <ion-label>N° Chassis</ion-label>
+                <ion-input type="text" class="form-control bg-light"></ion-input>
+              </div>
+              <div class="form-group">
+                <ion-label>Message</ion-label>
+                <textarea class="form-control bg-light"></textarea>
+              </div>
+              <div>
+                <div class="include-file">
+                  <ion-label>Vous avez des fichiers photos à inclure?</ion-label>
+                  <ion-icon slot="end" *ngIf="isIncludeFile === false" (click)="onIncludeFile()" name="chevron-down-circle-outline"></ion-icon>
+                  <ion-icon slot="end" *ngIf="isIncludeFile === true" (click)="onNotIncludeFile()" name="chevron-up-circle-outline"></ion-icon>
+                </div>
+                <div *ngIf="isIncludeFile !== false">
+                  <div class="form-group custom-file">
+                    <input type="file" class="form-control custom-file-input bg-light" id="customFile" multiple>
+                    <label  class="custom-file-label" for="customFile">Choose file</label>
+                  </div>
+                </div>
+              </div>
+              <div class="form-group">
+                <ion-button type="submit" color="success">Envoyer</ion-button>
+              </div>
+            </form>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

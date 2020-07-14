@@ -1,0 +1,91 @@
+<app-header [title]="categoryName" [defaultBack]="'/tabs/tabs/tab2'"></app-header>
+<ion-content [fullscreen]="false" color="light">
+    <ion-header class="header-pg">
+        <ion-toolbar color="medium" class="ion-no-padding">
+            <div>
+                <ion-grid class="ion-no-padding">
+                    <ion-row class="top-nav">
+                        <ion-col size="2">
+                            <div class="btn-grid-list">
+                                <ion-buttons>
+                                    <ion-button slot="end" (click)="onChange()">
+                                        <ion-icon name="grid" *ngIf="!isGrid"></ion-icon>
+                                        <ion-icon name="list" *ngIf="isGrid"></ion-icon>
+                                    </ion-button>
+                                </ion-buttons>
+                            </div>
+                        </ion-col>
+                        <ion-col size="5">
+                            <div class="tri-select">
+                                <ion-select value="2" class="ion-no-padding">
+                                    <ion-select-option value="1">Par Date</ion-select-option>
+                                    <ion-select-option value="2">Nouveauté</ion-select-option>
+                                    <ion-select-option value="3">Mieux noté</ion-select-option>
+                                    <ion-select-option value="4">Prix croissant</ion-select-option>
+                                    <ion-select-option value="5">Prix décroissant</ion-select-option>
+                                    <ion-select-option value="6">Par qualité</ion-select-option>
+                                </ion-select>
+                            </div>
+                        </ion-col>
+                        <ion-col size="5">
+                            <div class="btn-filter" (click)="filter()">
+                                <ion-label>Filtrer</ion-label>
+                                <div>
+                                    <ion-icon slot="end" name="chevron-forward-outline"></ion-icon>
+                                </div>
+                            </div>
+                        </ion-col>
+                    </ion-row>
+                </ion-grid>
+            </div>
+        </ion-toolbar>
+    </ion-header>
+    <div *ngIf="productList">
+        <div *ngIf="productList.length !== 0" class="grid gap-5 pad-5"
+             [ngClass]="{'grid-cols-2': isGrid, 'grid-col-1': !isGrid}">
+            <div *ngFor="let product of productList" class="card" >
+                <div class=" flex ion-no-padding items-center relative" [ngClass]="{'flex-col': isGrid, 'flex-row': !isGrid}">
+                    <ion-img src="../assets/images/frein.jpg" class="object-fit object-center" [ngClass]="{'w-1/3': !isGrid}"></ion-img>
+                    <div class="flex flex-col pad-5" (click)="goOnProductDetail(product.id)">
+                        <ion-label class="ion-no-margin w-3 truncate" [ngClass]="{'col-span-2': isGrid}">
+                            {{ product.productName }}
+                        </ion-label>
+                        <div class="my-container-label flex flex-col">
+                            <ion-label class="my-label-title block">{{ product.manufacturer }}</ion-label>
+                            <ion-label color="medium block">{{ product.quality }}</ion-label>
+                            <span class="price"> {{ product.price | currency: 'TND' }}</span>
+                            <div class="span-container block">
+                                <span *ngIf="product.rating >= 1">
+                                    <ion-icon class="iconStar" name="star"></ion-icon>
+                                  </span>
+                                <span *ngIf="product.rating >= 2">
+                                    <ion-icon class="iconStar" name="star"></ion-icon>
+                                  </span>
+                                <span *ngIf="product.rating >= 3">
+                                    <ion-icon class="iconStar" name="star"></ion-icon>
+                                  </span>
+                                <span *ngIf="product.rating >= 4">
+                                    <ion-icon class="iconStar" name="star"></ion-icon>
+                                  </span>
+                                <span *ngIf="product.rating >= 5">
+                                    <ion-icon class="iconStar" name="star"></ion-icon>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="absolute inset-y-0 right-0 flex flex-col items-center justify-between">
+                        <ion-button class="pt-2 pr-2 wish-list-icon" fill="clear">
+                            <ion-icon name="heart-outline" color="danger" slot="icon-only"></ion-icon>
+                        </ion-button>
+                        <ion-button class="pt-2 pr-2 wish-list-icon" fill="clear" (click)="addProductToCart(product, 1)">
+                            <ion-icon name="cart-outline"  color="success" slot="icon-only"></ion-icon>
+                        </ion-button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <ion-list *ngIf="productList.length === 0">
+            <ion-label class="ion-padding-start ion-padding-top">tableau vide</ion-label>
+        </ion-list>
+    </div>
+</ion-content>

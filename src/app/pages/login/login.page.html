@@ -1,0 +1,54 @@
+<ion-header>
+  <ion-toolbar mode="ios" color="secondary">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/home"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Sign In</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="login-content">
+  <ion-grid>
+    <ion-row class="logo-row">
+      <ion-col></ion-col>
+      <ion-col><ion-img src="../assets/images/logo.PNG"></ion-img></ion-col>
+      <ion-col></ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col size-md="6" offset-md="3">
+          <ion-card color="light-shade" class="login-box">
+            <ion-card-header>
+              <ion-card-title class="ion-text-center">Auto parts Deal</ion-card-title>
+            </ion-card-header>
+            <ion-card-content id="container">
+              <div class="text-danger" *ngIf="message === ''"><p>{{ message }}</p></div>
+                <form [formGroup]="loginForm" (ngSubmit)="onLogin()">
+                  <div class="form-group">
+                    <ion-label class="label">
+                      Email
+                    </ion-label>
+                    <ion-input type="email" inputmode="email" class="form-control bg-light" placeholder=" usermail@example.com" formControlName="email"></ion-input>
+                    <div class="text-danger" *ngIf="loginForm.controls.email.invalid && (loginForm.controls.email.dirty || loginForm.controls.email.touched)">Please enter valid email</div>
+                  </div>
+                  <div class="form-group">
+                    <ion-label class="label">
+                      Password
+                    </ion-label>
+                    <ion-input type="password" class="form-control bg-light" placeholder=" A-Z*/" formControlName="password"></ion-input>
+                    <div class="text-danger" *ngIf="loginForm.controls.password.value.length < 6 && loginForm.controls.password.value.length !==0 ">Please enter valid password must contains at least 6 character</div>
+                  </div>
+                  <div>
+                    <p class="login">Forgot your password? <a [routerLink]="">Click here</a></p>
+                  </div>
+                  <div class="signin-col">
+                    <ion-button type="submit" color="success" [disabled]="loginForm.invalid">
+                      Sign in
+                    </ion-button>
+                  </div>
+                </form>
+            </ion-card-content>
+          </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

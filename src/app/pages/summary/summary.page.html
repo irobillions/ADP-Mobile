@@ -1,0 +1,102 @@
+<ion-header class="header-bg">
+  <ion-toolbar mode="ios">
+    <ion-buttons>
+      <ion-back-button defaultHref="/checkout-process" color="light"></ion-back-button>
+    </ion-buttons>
+    <ion-title color="light">Summary</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content color="light">
+  <div class="container shadow-xs bg-white">
+    <ion-button class="ion-no-padding h-5" data-toggle="collapse" data-target="#demo" fill="clear" expand="block">Infos</ion-button>
+    <div id="demo" class="collapse">
+      Lorem ipsum dolor sit amet, consectetur adipisicing elit,
+      sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+      quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+    </div>
+  </div>
+  <div class="m-1 mt-2">
+    <ion-label class="p-3 text-sm text-gray-700" style="font-weight: 300; opacity: 50%"><strong>
+      Votre commande</strong></ion-label>
+  </div>
+  <div class="p-2 shadow-xs m-1 rounded mt-8 bg-white">
+
+    <div class="flex flex-col ion-padding-start">
+      <span class="text-sm text-gray-700">
+          2x Frein Avant
+      </span>
+      <span  class="text-sm text-gray-700">
+          3x Par choc arriere seat
+      </span>
+    </div>
+  </div>
+  <div class="p-2 shadow-xs m-1 rounded mt-8 bg-white">
+    <div class="grid grid-cols-2 rounded gap-2 pb-1 text-sm">
+      <span class="text-gray-700">Order</span>
+      <span class="text-right">122</span>
+      <span class="text-gray-700">Delivery</span>
+      <span class="text-right">10</span>
+    </div>
+    <div class="grid grid-cols-2 gap-2 pt-2 border-top-dark">
+      <span class="text-gray-700">Summary</span>
+      <span class="text-right">122</span>
+    </div>
+  </div>
+  <div class="m-1 mt-2">
+    <div class="grid grid-cols-2 rounded gap-2 pt-2">
+      <ion-label class="text-sm text-gray-700 pl-1" style="font-weight: 300; opacity: 50%"><strong>
+        Votre Adresse</strong></ion-label>
+      <span class="text-right text-blue-700 pr-2 text-sm">
+        <a class="btn-link" routerDirection="back" routerLink="/checkout-process">Changer</a>
+      </span>
+    </div>
+  </div>
+  <div class="p-2 shadow-xs m-1 rounded mt-8 bg-white">
+    <div class="ion-padding-start">
+      <ion-label>
+        12 rue El hidaya Menzah Ariana
+      </ion-label>
+      <div class="text-gray-700 text-sm flex items-center">
+        <span class="mr-2">
+          <svg class="w-4 h-4" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" stroke="currentColor"><path d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+        </span>
+        <span> 2037  Tunis, Tunisie</span>
+      </div>
+    </div>
+  </div>
+  <div class="m-1 mt-2">
+    <div class="grid grid-cols-2 rounded gap-2 pt-2">
+      <ion-label class="text-sm text-gray-700 pl-1" style="font-weight: 300; opacity: 50%"><strong>
+        Mode Livraison</strong></ion-label>
+      <span class="text-right text-blue-700 btn-link pr-2 text-sm">Changer</span>
+    </div>
+  </div>
+  <div class="p-2 shadow-xs m-1 rounded mt-8 bg-white">
+    <div class="flex flex-col ion-padding-start">
+      <span class="text-sm text-gray-700">
+         <strong>Livraison Standard</strong>
+      </span>
+      <span  class="text-sm text-gray-700">
+          Livré sous deux à trois jours maximum
+      </span>
+    </div>
+  </div>
+  <div class="m-1 mt-2">
+    <div class="grid grid-cols-2 rounded gap-2 pt-2">
+      <ion-label class="text-sm text-gray-700 pl-1" style="font-weight: 300; opacity: 50%"><strong>
+        Mode Paiement</strong></ion-label>
+      <span class="text-right text-blue-700 btn-link pr-2 text-sm">Changer</span>
+    </div>
+  </div>
+  <div class="p-2 shadow-xs m-1 rounded mt-8 bg-white">
+    <div class="flex flex-col ion-padding-start">
+      <span  class="text-sm text-gray-700">
+          Paiement Par Carte
+      </span>
+    </div>
+  </div>
+  <div class="p-2 mt-1">
+    <ion-button class="w-full bg-teal-500 text-white py-1 rounded" fill="clear" (click)="confirmOrder()">Confirm</ion-button>
+  </div>
+</ion-content>

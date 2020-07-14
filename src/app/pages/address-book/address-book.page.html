@@ -1,0 +1,57 @@
+<ion-header class="header-bg">
+  <ion-toolbar mode="ios">
+    <ion-buttons>
+      <ion-back-button defaultHref="/user-account" color="light"></ion-back-button>
+    </ion-buttons>
+    <ion-title color="light">address-book</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" color="light">
+  <ion-grid>
+    <ion-row>
+        <ion-col size-md="6" offset-md="3">
+          <div class="card bg-light text-dark">
+            <div *ngIf="address && address.length !== 0">
+                <ion-radio-group (ionChange)="getAddressChecked($event)" value="{{ address[0].id }}">
+                    <ion-list>
+                        <ion-card *ngFor="let adr of address">
+                            <ion-card-header class="address-card-header">
+                                <strong>{{ user.firstName +' '+ user.lastName }}</strong>
+                                <ion-buttons>
+                                    <ion-button fill="clear" (click)="createPopOver($event, adr.id)">
+                                        <ion-icon ios="ellipsis-horizontal-outline" md="ellipsis-horizontal-sharp"></ion-icon>
+                                    </ion-button>
+                                </ion-buttons>
+                            </ion-card-header>
+                            <ion-card-content>
+                                <div class="adr-ct">
+                                    <ion-radio slot="start" value="{{ adr.id }}" color="success" mode="md"></ion-radio>
+                                    <div class="address-infos">
+                                        <ion-label>{{ adr.street }}</ion-label><br>
+                                        <ion-label>{{ adr.city +', '+ adr.zipCode }}</ion-label><br>
+                                        <ion-label>{{ adr.country }}</ion-label>
+                                    </div>
+                                </div>
+                            </ion-card-content>
+                        </ion-card>
+                    </ion-list>
+                </ion-radio-group>
+            </div>
+              <div *ngIf="address && address.length === 0" class="no-address ion-text-center">
+                  <p class="text-danger text-format">
+                      Vous n'avez aucune addresse disponible, ajouter en a votre carnet d'addresse!
+                  </p>
+              </div>
+            <ion-list>
+                <div class="card-footer button-format">
+                  <ion-button routerDirection="forward" routerLink="/add-address" fill="solid" expand="block">
+                      Ajouter une nouvelle addresse
+                  </ion-button>
+                </div>
+            </ion-list>
+          </div>
+        </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

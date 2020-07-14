@@ -1,0 +1,92 @@
+<ion-header class="header-bg" [translucent]="true">
+  <ion-toolbar mode="ios">
+    <ion-buttons>
+      <ion-back-button defaultHref="/address-book" color="light"></ion-back-button>
+    </ion-buttons>
+    <ion-title color="light">Add new Addresss</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="false" color="light">
+  <ion-grid>
+    <ion-row class="logo-row">
+      <ion-col class="ion-no-padding">
+        <ion-img src="../assets/images/delivery.PNG"></ion-img>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col size-md="6" offset-md="3">
+        <form [formGroup]="addAddressForm" (ngSubmit)="onAddAddress()">
+          <ion-card>
+            <ion-card-header>
+              <ion-item-divider mode="ios">
+                Address Details
+              </ion-item-divider>
+            </ion-card-header>
+            <ion-card-content>
+              <ion-list>
+                <div class="aligns-div">
+                  <div class="form-group">
+                    <ion-label>First Name</ion-label>
+                    <ion-input type="text"  formControlName="firstName" class="form-control bg-light"></ion-input>
+                  </div>
+                  <div class="form-group">
+                    <ion-label>Last Name</ion-label>
+                    <ion-input type="text" formControlName="lastName" class="form-control bg-light" ></ion-input>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <ion-label>street Address</ion-label>
+                  <ion-input type="text" class="form-control bg-light" formControlName="street"></ion-input>
+                </div>
+                <div class="form-group">
+                  <ion-label>City</ion-label>
+                  <ion-input type="text"  formControlName="city" class="form-control bg-light"></ion-input>
+                </div>
+                <div class="form-group">
+                  <ion-label>Country</ion-label>
+                  <ion-input type="text" formControlName="country" class="form-control bg-light"></ion-input>
+                </div>
+                <div class="form-group">
+                  <ion-label>Code Postal</ion-label>
+                  <ion-input type="text"  formControlName="zipCode" class="form-control bg-light"></ion-input>
+                </div>
+                <div class="form-group">
+                  <ion-label>Numéro de téléphone</ion-label>
+                  <div class="form-inline">
+                    <ion-select value="216" formControlName="codeArea">
+                      <ion-select-option value="216">+216</ion-select-option>
+                      <ion-select-option value="242">+242</ion-select-option>
+                      <ion-select-option>+337</ion-select-option>
+                    </ion-select>
+                    <ion-input type="text" formControlName="cellNumber" class="form-control bg-light"></ion-input>
+                  </div>
+                </div>
+              </ion-list>
+              <div *ngIf="adrObj !== null && adrObj !== undefined">
+                <div class="aligns-div">
+                  <div class="form-group">
+                    <ion-label>latitute</ion-label>
+                    <ion-input type="text" [(ngModel)]="adrObj.lat" formControlName="lat" class="form-control bg-light" ></ion-input>
+                  </div>
+                  <div class="form-group">
+                    <ion-label>longitude</ion-label>
+                    <ion-input type="text" [(ngModel)]="adrObj.long" formControlName="long" class="form-control bg-light"></ion-input>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <ion-label>addresse</ion-label>
+                  <textarea type="text" [(ngModel)]="adrObj.adr" formControlName="adr" class="form-control bg-light"></textarea>
+                </div>
+              </div>
+            </ion-card-content>
+          </ion-card>
+          <div class="form-group ion-text-center">
+            <ion-button color="success" type="submit" expand="block">Save</ion-button>
+          </div>
+        </form>
+        <ion-button routerLink="/add-new-address" color="success" expand="block">Ajouter les donnéés de geolocalisation</ion-button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

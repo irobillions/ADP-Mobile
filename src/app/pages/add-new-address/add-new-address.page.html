@@ -1,0 +1,65 @@
+<ion-header class="header-bg" [translucent]="true">
+  <ion-toolbar mode="ios">
+    <ion-buttons>
+      <ion-back-button defaultHref="/add-address" color="light"></ion-back-button>
+    </ion-buttons>
+    <ion-title color="light">Add new Addresss</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="false">
+  <ion-header>
+    <ion-toolbar color="warning">
+      <ion-button (click)="loadMap()" shape="round" color="dark">
+        <ion-icon slot="start" name="locate"></ion-icon>
+        Where I Am
+      </ion-button>
+      <ion-title slot="end">Google Map</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  <ion-grid>
+    <ion-row>
+      <ion-col size-md="6" offset-md="3">
+        <div class="card bg-light">
+          <div class="map-wrapper">
+            <div id="map_center">
+              <ion-icon name="location" color="danger"></ion-icon>
+            </div>
+            <div #map id="map"></div>
+          </div>
+          <ion-grid>
+            <ion-row>
+              <ion-col size="3">
+                <b>Lat:</b>
+              </ion-col>
+              <ion-col>
+                {{latitude}}
+              </ion-col>
+            </ion-row>
+            <ion-row>
+              <ion-col size="3">
+                <b>Long:</b>
+              </ion-col>
+              <ion-col>
+                {{longitude}}
+              </ion-col>
+            </ion-row>
+            <ion-row>
+              <ion-col size="3">
+                <b>Address:</b>
+              </ion-col>
+              <ion-col>
+                {{address}}
+              </ion-col>
+            </ion-row>
+          </ion-grid>
+        </div>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <ion-button expand="block" (click)="saveAddressFromMap(longitude, latitude, address)">Save</ion-button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

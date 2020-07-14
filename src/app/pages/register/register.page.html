@@ -1,0 +1,60 @@
+<ion-header>
+  <ion-toolbar mode="ios" color="secondary">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/home"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Sign Up</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="login-content">
+  <ion-grid>
+    <ion-row class="logo-row">
+      <ion-col></ion-col>
+      <ion-col><ion-img src="../assets/images/logo.PNG"></ion-img></ion-col>
+      <ion-col></ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col size-md="6" offset-md="3">
+          <ion-card color="light-shade" class="login-box">
+            <ion-card-header>
+              <ion-card-title class="ion-text-center">Auto parts Deal</ion-card-title>
+            </ion-card-header>
+            <ion-card-content id="container">
+                <form [formGroup]="registerForm" (ngSubmit)="onRegister()">
+                  <div class="form-group">
+                    <ion-label class="label">
+                      Last name
+                    </ion-label>
+                    <ion-input type="text" class="form-control bg-light" placeholder=" Doe" formControlName="lastName"></ion-input>
+                  </div>
+                  <div class="form-group">
+                    <ion-label class="label">
+                      First name
+                    </ion-label>
+                    <ion-input type="text" class="form-control bg-light" placeholder=" john" formControlName="firstName"></ion-input>
+                  </div>
+                  <div class="form-group">
+                    <ion-label class="label">
+                      Email
+                    </ion-label>
+                    <ion-input type="email" inputmode="email" class="form-control bg-light" placeholder=" usermail@example.com" formControlName="email"></ion-input>
+                  </div>
+                  <div class="form-group">
+                    <ion-label class="label">
+                      Password
+                    </ion-label>
+                    <ion-input type="password" class="form-control bg-light" placeholder=" A-Z*/" formControlName="password"></ion-input>
+                  </div>
+                  <div class="signin-col">
+                    <ion-button type="submit" color="success">
+                      Sign up
+                    </ion-button>
+                  </div>
+                </form>
+            </ion-card-content>
+          </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

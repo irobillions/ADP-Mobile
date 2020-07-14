@@ -1,0 +1,37 @@
+<ion-content [fullscreen]="true">
+  <ion-grid>
+    <ion-row class="ion-align-items-center">
+      <ion-col size-md="3" offset-md="3">
+        <ion-text>
+          <h1>Welcome.</h1>
+          <p> Get started by logging into<br>your account</p>
+        </ion-text>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <div class="actions">
+        <div class="login-buttons">
+          <ion-button>
+            <ion-avatar>
+              <ion-icon class="logo" color="primary" name="logo-facebook"></ion-icon>
+            </ion-avatar>
+            <ion-label>facebook</ion-label>
+          </ion-button>
+          <ion-button>
+            <ion-avatar>
+              <ion-icon class="logo" color="danger" name="logo-google"></ion-icon>
+            </ion-avatar>
+            <ion-label>gmail</ion-label>
+          </ion-button>
+        </div>
+        <div class="separator">
+          <span> or </span>
+          <span class="line left"></span>
+          <span class="line right"></span>
+        </div>
+        <ion-button class="signup-btn" expand="block" [routerLink]="['/register']">Signup with Email</ion-button>
+        <p class="login">Existing user? <a [routerLink]="['/login']">Login now</a></p>
+      </div>
+    </ion-row>
+  </ion-grid>
+</ion-content>

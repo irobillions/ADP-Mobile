@@ -1,0 +1,45 @@
+<app-header [title]="'Vos Commandes'" [defaultBack]="'/tabs/tabs/tab5'"></app-header>
+
+<ion-content [fullscreen]="false" color="light">
+  <div class="header shadow-xs">
+    <ion-toolbar class="toolbar">
+      <ion-segment [(ngModel)]="profileType" (ionChange)="segmentChanged($event)" mode="md">
+        <ion-segment-button value="order" layout="icon-start">
+          <ion-icon name="archive-outline"></ion-icon>
+          <ion-label>orders</ion-label>
+        </ion-segment-button>
+        <ion-segment-button value="archives" layout="icon-start">
+          <ion-icon name="trash-bin-outline"></ion-icon>
+          <ion-label>archived</ion-label>
+        </ion-segment-button>
+      </ion-segment>
+    </ion-toolbar>
+  </div>
+  <div [ngSwitch]="profileType">
+    <div *ngSwitchCase="'order'">
+      <div class="card-body aligns-div item icon-tall">
+        <ion-searchbar></ion-searchbar>
+        <div (click)="goToFilterPage()">
+          <ion-icon class="icon" ios="options-outline" md="options-sharp"></ion-icon>
+        </div>
+      </div>
+      <div class="card-body"></div>
+        <div *ngIf="Orders">
+          <app-single-order *ngFor="let order of Orders; let i = index" [order]="order"></app-single-order>
+        </div>
+      <div *ngIf="Orders.length === 0">
+        <ion-item lines="full">
+          <ion-label class="ion-padding-start" style="font-weight: 300; opacity: 50%"><strong>Aucune commandes effectuées</strong></ion-label>
+        </ion-item>
+      </div>
+    </div>
+    <div *ngSwitchCase="'archives'">
+      <div class="card-body"></div>
+      <div>
+        <ion-item lines="full">
+          <ion-label class="ion-padding-start" style="font-weight: 300; opacity: 50%"><strong>Aucune commandes archivés</strong></ion-label>
+        </ion-item>
+      </div>
+    </div>
+  </div>
+</ion-content>

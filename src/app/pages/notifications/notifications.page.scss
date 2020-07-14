@@ -1,0 +1,30 @@
+.header-bg {
+  background-color: #70A9AC;
+
+  ion-header {
+    background-color: #70A9AC;
+  }
+  ion-toolbar {
+    --background: #70A9AC;
+  }
+}
+
+
+.button-cart-not-bg {
+  background-color: #70A9AC;
+  margin-top: 6px;
+  position: relative;
+}
+.cart-length {
+  color: var(--ion-color-light);
+  background-color: transparent;
+  transform: translate(-40%, -60%);
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  font-weight: 600;
+  font-size: 1em;
+  min-width: 10px;
+  z-index: 10;
+}
+

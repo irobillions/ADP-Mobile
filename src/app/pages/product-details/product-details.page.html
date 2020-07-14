@@ -1,0 +1,469 @@
+<app-header [title]="'Details du produit'" [defaultBack]="'product-list/'+product.categories" *ngIf="product"></app-header>
+<ion-content [fullscreen]="false" color="light" *ngIf="product">
+    <div *ngIf="!product">
+        <ion-label>
+            Sorry we get an error with our server!
+        </ion-label>
+    </div>
+    <div class="Product-page-header card" *ngIf="product">
+        <div class="flex justify-between">
+            <div class="pad-5 w-300 f-15">
+                {{ product.productName | uppercase }}
+            </div>
+            <div class="f-right inline-flex pad-5 center ion-justify-content-center">
+               <span class="inline-flex ion-justify-content-center ion-align-items-center pad-1">
+                 {{ product.rating }}
+               </span>
+                        <div class="span-container inline-flex">
+              <span *ngIf="product.rating >= 1">
+                <ion-icon class="iconStar" name="star"></ion-icon>
+              </span>
+                            <span *ngIf="product.rating >= 2">
+                <ion-icon class="iconStar" name="star"></ion-icon>
+              </span>
+                            <span *ngIf="product.rating >= 3">
+                <ion-icon class="iconStar" name="star"></ion-icon>
+              </span>
+                            <span *ngIf="product.rating >= 4">
+                <ion-icon class="iconStar" name="star"></ion-icon>
+              </span>
+                            <span *ngIf="product.rating >= 5">
+                <ion-icon class="iconStar" name="star"></ion-icon>
+              </span>
+                </div>
+            </div>
+        </div>
+        <div class="pad-t-0 border-b-lightgray">
+      <span>
+        {{ product.description }}
+      </span>
+        </div>
+    </div>
+    <div class="card border-t-light">
+        <div class="border-t-dark pad-t-5">
+            <ion-slides class="slide-padding" pager="true">
+                <ion-slide *ngFor="let story of topStories">
+                    <div class="container">
+                        <ion-img src="../assets/images/plaquette-frein.PNG"></ion-img>
+                    </div>
+                </ion-slide>
+            </ion-slides>
+        </div>
+    </div>
+    <div class="card" *ngIf="product">
+        <div class="pad-5 border-b-lightgray">
+            <span style="font-weight: 500; font-size: 16px"><ion-badge class="ion-no-padding"
+                                                                       color="danger">Type:</ion-badge></span> <span
+                class="ion-padding-start">Plaquettes de freins {{ product.type }}</span>
+        </div>
+        <div class="border-t-light">
+            <ion-label class="ion-padding-start">
+                <ion-item-divider mode="ios">
+                    Infos Produit
+                </ion-item-divider>
+            </ion-label>
+            <ion-grid class="ion-no-padding">
+                <ion-row>
+                    <ion-col size="6" class="border-r">
+                        <div class="pad-5 ml-1">
+                            <div class="flex flex-col pb-1">
+                                <ion-item-divider mode="ios">
+                                    <span class="label">Type</span>
+                                </ion-item-divider>
+                                <span class="pad-l-2">{{ product.type }}</span>
+                            </div>
+                            <div class="flex flex-col pb-1">
+                                <ion-item-divider mode="ios">
+                                    <span class="label">part reférence</span>
+                                </ion-item-divider>
+                                <span class="pad-l-2">{{ product.ref_part }}</span>
+                            </div>
+                            <div class="flex flex-col pb-1">
+                                <ion-item-divider mode="ios">
+                                    <span class="label">Quality</span>
+                                </ion-item-divider>
+                                <span class="pad-l-2">{{ product.quality }}</span>
+                            </div>
+                            <div class="flex flex-col pb-1">
+                                <ion-item-divider mode="ios">
+                                    <span class="label">Manufacturer</span>
+                                </ion-item-divider>
+                                <span class="pad-l-2">{{ product.manufacturer }}</span>
+                            </div>
+                            <div class="flex flex-col pb-1">
+                                <ion-item-divider mode="ios">
+                                    <span class="label">Country of Origin</span>
+                                </ion-item-divider>
+                                <span class="pad-l-2">{{ product.country_of_origin }}</span>
+                            </div>
+                        </div>
+                    </ion-col>
+                    <ion-col size="6">
+                        <div class="pad-5 mr-2 ml-1">
+                            <div class="pad-5 inline-flex flex-row">
+                <span class="font-w-300" [ngClass]="{'text-danger': product.availability === 'Epuisé',
+                'text-success': product.availability === 'stock'}">
+                  {{ product.availability }}
+                </span>
+                                <span class="inline-flex ion-justify-content-center items-center ml-1"
+                                      *ngIf="product.availability === 'stock'">
+                  <ion-icon name="cube-sharp" color="success"></ion-icon>
+                </span>
+                                <span class="inline-flex ion-justify-content-center items-center ml-1"
+                                      *ngIf="product.availability === 'Epuisé'">
+                 <ion-icon name="warning-outline" color="danger"></ion-icon>
+                </span>
+                            </div>
+                        </div>
+                        <div class="ma-l-1">
+                            <div class="flex flex-col pb-1">
+                                <ion-item-divider mode="ios">
+                                    <span class="label">Prix</span>
+                                </ion-item-divider>
+                                <span class="pad-l-2">{{ product.price | currency: 'TND' }}</span>
+                            </div>
+                            <div class="flex flex-col pb-1">
+                                <ion-item-divider mode="ios">
+                                    <span class="label">Categories</span>
+                                </ion-item-divider>
+                                <span class="pad-l-2">{{ product.categories }}</span>
+                            </div>
+                            <div class="flex flex-row items-center justify-center border-b-lightgray border-t-lightgray">
+                                <ion-button slot="icon-only" fill="clear" (click)="decreaseAmount()">
+                                  <span>
+                                      <svg fill="currentColor" viewBox="0 0 20 20" class="w-6 h-6 text-blue-500">
+                                        <path fill-rule="evenodd"
+                                              d="M10 18a8 8 0 100-16 8 8 0 000 16zM7 9a1 1 0 000 2h6a1 1 0 100-2H7z"
+                                              clip-rule="evenodd">
+                                        </path>
+                                      </svg>
+                                    </span>
+                                </ion-button>
+                                <span class="text-gray-800 mx-2">{{ productAmount }}</span>
+                                <ion-button slot="icon-only" fill="clear" (click)="increaseAmount()">
+                                   <span>
+                                     <svg fill="currentColor" viewBox="0 0 20 20" class="w-6 h-6 text-blue-500">
+                                       <path fill-rule="evenodd"
+                                             d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-11a1 1 0 10-2 0v2H7a1 1 0 100 2h2v2a1 1 0 102 0v-2h2a1 1 0 100-2h-2V7z"
+                                             clip-rule="evenodd">
+                                       </path>
+                                     </svg>
+                                   </span>
+                                </ion-button>
+                            </div>
+                            <div class="flex flex-row pb-1 pad-5">
+                                <div class="pad-5">
+                                    <ion-button class="btn-cart" fill="outline" (click)="addProductToCart(product, productAmount)">
+                                        <ion-icon name="cart-sharp"></ion-icon>
+                                    </ion-button>
+                                </div>
+                                <div class="pad-5">
+                                    <ion-button class="btn-heart" fill="outline">
+                                        <ion-icon name="heart-sharp"></ion-icon>
+                                    </ion-button>
+                                </div>
+                            </div>
+                        </div>
+                    </ion-col>
+                </ion-row>
+                <ion-row>
+                </ion-row>
+            </ion-grid>
+        </div>
+    </div>
+    <div class="pad-t-5">
+        <ion-label class="pad-5" style="font-weight: 300; opacity: 50%"><strong class="pad-t-5 text-sm">Details sur le produit</strong></ion-label>
+    </div>
+    <div class="card border-t-light border-b-light" *ngIf="product">
+      <div>
+          <div class="accordion" id="accordionExample">
+             <ion-card class="ion-no-padding">
+                 <div class="card-header" id="headingOne">
+                     <ion-button class="m-0 collapsed flex items-center justify-between" fill="clear" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+                        <ion-label> Détails</ion-label>
+                         <ion-icon class="ion-float-end" slot="end" name="caret-down" color="medium"></ion-icon>
+                     </ion-button>
+                 </div>
+                 <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
+                     <div class="card-body">
+                       <ul class="ion-no-padding pad-l-2">
+                           <li>
+                               <div class="flex flex-col pb-1">
+                                   <ion-item-divider mode="ios">
+                                       <span class="label">Diametre</span>
+                                   </ion-item-divider>
+                                   <span class="pad-l-2">{{ product.diameter }} mm</span>
+                               </div>
+                           </li>
+                           <li>
+                               <div class="flex flex-col pb-1">
+                                   <ion-item-divider mode="ios">
+                                       <span class="label">Dimension</span>
+                                   </ion-item-divider>
+                                   <span class="pad-l-2">{{ product.dimension }} mm</span>
+                               </div>
+                           </li>
+                           <li>
+                               <div class="flex flex-col pb-1">
+                                   <ion-item-divider mode="ios">
+                                       <span class="label">volume</span>
+                                   </ion-item-divider>
+                                   <span class="pad-l-2">{{ product.volume }} mm</span>
+                               </div>
+                           </li>
+                           <li>
+                               <div class="flex flex-col pb-1">
+                                   <ion-item-divider mode="ios">
+                                       <span class="label">Date de production</span>
+                                   </ion-item-divider>
+                                   <span class="pad-l-2">{{ product.date_of_prod | date: 'dd-MM-y' }}</span>
+                               </div>
+                           </li>
+                           <li>
+                               <div class="flex flex-col pb-1">
+                                   <ion-item-divider mode="ios">
+                                       <span class="label">poids</span>
+                                   </ion-item-divider>
+                                   <span class="pad-l-2">{{ product.weight }} g</span>
+                               </div>
+                           </li>
+                           <li>
+                               <div class="flex flex-col pb-1">
+                                   <ion-item-divider mode="ios">
+                                       <span class="label">Etat</span>
+                                   </ion-item-divider>
+                                   <span class="pad-l-2">Neuf</span>
+                               </div>
+                           </li>
+                       </ul>
+                     </div>
+                 </div>
+             </ion-card>
+              <ion-card class="ion-no-padding">
+                  <div class="card-header" id="headingTwo">
+                      <ion-button class="m-0 collapsed flex items-center justify-between" fill="clear" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                          <ion-label>Véhicules concernés</ion-label>
+                          <ion-icon  class="ion-float-end" slot="end" name="caret-down" color="medium"></ion-icon>
+                      </ion-button>
+                  </div>
+                  <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
+                      <div class="card-body">
+                          <ul class="ion-no-padding pad-l-2" *ngIf="carCompt && carCompt.length !== 0">
+                              <li *ngFor="let carModel of carCompt">{{ carModel.model }}</li>
+                          </ul>
+                      </div>
+                  </div>
+              </ion-card>
+              <ion-card class="ion-no-padding">
+                  <div class="card-header" id="headingThree">
+                      <ion-button class="m-0 collapsed flex items-center justify-between" fill="clear" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                          <ion-label>Numero OEM</ion-label>
+                          <ion-icon  class="ion-float-end" slot="end" name="caret-down" color="medium"></ion-icon>
+                      </ion-button>
+                  </div>
+                  <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
+                      <div class="card-body">
+                          <div>
+                              <ion-label>
+                                  {{ product.num_oem }}
+                              </ion-label>
+                          </div>
+                      </div>
+                  </div>
+              </ion-card>
+          </div>
+      </div>
+    </div>
+    <div class="card bg-light flex-row">
+       <ion-grid class="ion-no-padding ion-no-margin">
+           <ion-row>
+               <ion-col size="6" class="box">
+                  <div class="flex">
+                      <span class="border-rd w-3 h-3 block flex items-center ion-justify-content-center bg-transparent flex-shrink-0">
+                          <svg class="w-3 h-3" id="Capa_1" enable-background="new 0 0 512 512" height="512" viewBox="0 0 512 512" width="512" xmlns="http://www.w3.org/2000/svg">
+                          <g><path d="m135 290h-60c-8.284 0-15 6.716-15 15s6.716 15 15 15h60c8.284 0 15-6.716 15-15s-6.716-15-15-15z"/>
+                              <path d="m135 230h-60c-8.284 0-15 6.716-15 15s6.716 15 15 15h60c8.284 0 15-6.716 15-15s-6.716-15-15-15z"/>
+                              <path d="m428.82 328.109-45.962 45.961-17.678-17.677c-5.857-5.858-15.355-5.858-21.213 0s-5.858 15.355 0 21.213l28.284 28.284c2.929 2.929 6.768 4.394 10.606 4.394s7.678-1.464 10.606-4.394l56.568-56.568c5.858-5.858 5.858-15.355 0-21.213-5.856-5.858-15.354-5.858-21.211 0z"/>
+                              <path d="m497 262c-18.955 0-35.996-10.532-44.472-27.484l-2.111-4.223c-2.541-5.083-7.735-8.293-13.417-8.293h-7v-127c0-2.329-.542-4.625-1.583-6.708l-40-80c-2.542-5.082-7.735-8.292-13.417-8.292h-320c-5.682 0-10.875 3.21-13.417 8.292l-40 80c-1.041 2.083-1.583 4.379-1.583 6.708v260c0 8.284 6.716 15 15 15h267.179c1.442 30.942 11.918 60.299 30.529 85.313 20.089 27 47.747 46.384 79.982 56.054 1.406.422 2.858.633 4.31.633s2.904-.211 4.31-.633c32.235-9.67 59.893-29.054 79.982-56.054 20.089-27.001 30.708-59.062 30.708-92.716v-85.597c0-8.284-6.716-15-15-15zm-106.271-182h-130.729v-50h105.729zm-190.729 30h30v70h-30zm30-80v50h-30v-50zm-165.729 0h105.729v50h-130.729zm217.729 247v63h-252v-230h140v85c0 8.284 6.716 15 15 15h60c8.284 0 15-6.716 15-15v-85h140v112h-43c-5.682 0-10.876 3.21-13.417 8.292l-2.111 4.222c-8.476 16.954-25.517 27.486-44.472 27.486-8.284 0-15 6.716-15 15zm200 85.597c0 54.256-33.971 101.385-85 118.66-51.029-17.275-85-64.404-85-118.66v-71.995c22.701-4.285 42.437-18.2 54.125-38.603h61.75c11.688 20.402 31.424 34.318 54.125 38.603z"/>
+                          </g></svg>
+                      </span>
+                      <div class="flex flex-col ml-1">
+                        <span class="text-xs">
+                          <ion-label>
+                            <strong>
+                              Garantie
+                            </strong>
+                          </ion-label>
+                        </span>
+                        <span class="text-xs">
+                          <ion-label>
+                            2 ans
+                          </ion-label>
+                        </span>
+                      </div>
+                  </div>
+               </ion-col>
+               <ion-col size="6" class="box">
+                   <div class="flex">
+                       <span class="border-rd w-3 h-3 block flex items-center ion-justify-content-center bg-transparent flex-shrink-0">
+                           <svg class="w-3 h-3" height="511pt" viewBox="0 1 511.99981 511" width="511pt" xmlns="http://www.w3.org/2000/svg">
+                               <path d="m506.8125 111.230469-199.40625-109.496094c-2.996094-1.6445312-6.628906-1.6445312-9.625 0l-75.160156 41.269531c-1.585938.417969-3.066406 1.214844-4.292969 2.359375l-119.949219 65.867188c-3.199218 1.753906-5.1875 5.113281-5.1875 8.765625v132.429687c-20.234375 6.328125-38.777344 17.488281-54.195312 32.910157-40.1875 40.183593-50.433594 101.472656-25.496094 152.507812 2.421875 4.960938 8.410156 7.019531 13.371094 4.59375 4.964844-2.425781 7.019531-8.414062 4.597656-13.375-21.1875-43.363281-12.480469-95.4375 21.667969-129.585938 21.355469-21.355468 49.746093-33.117187 79.945312-33.117187s58.589844 11.761719 79.945313 33.117187c21.351562 21.351563 33.113281 49.742188 33.113281 79.941407s-11.761719 58.589843-33.117187 79.945312c-34.148438 34.148438-86.222657 42.855469-129.585938 21.667969-4.960938-2.425781-10.949219-.367188-13.371094 4.59375-2.425781 4.964844-.371094 10.953125 4.59375 13.375 18.589844 9.085938 38.535156 13.5 58.335938 13.5 34.542968-.003906 68.625-13.449219 94.171875-38.996094 11.714843-11.714844 20.972656-25.230468 27.523437-39.921875l43.089844 23.660157c1.5.824218 3.15625 1.234374 4.8125 1.234374s3.316406-.410156 4.8125-1.234374l199.40625-109.492188c3.199219-1.757812 5.1875-5.117188 5.1875-8.765625v-69.496094c0-5.523437-4.476562-10-10-10s-10 4.476563-10 10v63.578125l-179.375 98.496094v-196.171875l59.199219-32.507813v51.53125c0 3.539063 1.867187 6.8125 4.910156 8.609376 1.570313.925781 3.328125 1.390624 5.089844 1.390624 1.65625 0 3.316406-.410156 4.820312-1.238281l42.730469-23.519531c3.195312-1.757812 5.175781-5.113281 5.175781-8.757812v-62.460938l57.449219-31.542969v52.597657c0 5.523437 4.476562 10 10 10s10-4.476563 10-10v-69.496094c0-3.648438-1.988281-7.011719-5.1875-8.765625zm-204.21875-89.324219 178.628906 98.089844-56.347656 30.941406-178.628906-98.089844zm0 196.175781-178.628906-98.085937 58.414062-32.078125 178.632813 98.085937zm79.191406-43.484375-178.628906-98.085937 22.3125-12.253907 178.632812 98.085938zm-154.617187 110.738282c-25.132813-25.132813-58.546875-38.972657-94.085938-38.972657-6.722656 0-13.363281.496094-19.890625 1.46875v-110.9375l179.4375 98.53125v196.171875l-31.144531-17.101562c3.066406-11.289063 4.652344-23.0625 4.652344-35.078125 0-35.539063-13.839844-68.953125-38.96875-94.082031zm187.386719-60.347657-22.730469 12.511719v-45.597656l22.730469-12.480469zm0 0"/><path d="m502 219.441406c-2.628906 0-5.210938 1.070313-7.070312 2.929688-1.859376 1.859375-2.929688 4.4375-2.929688 7.070312 0 2.628906 1.070312 5.207032 2.929688 7.066406 1.859374 1.863282 4.441406 2.929688 7.070312 2.929688s5.210938-1.066406 7.070312-2.929688c1.859376-1.859374 2.929688-4.4375 2.929688-7.066406 0-2.632812-1.070312-5.210937-2.929688-7.070312-1.859374-1.859375-4.441406-2.929688-7.070312-2.929688zm0 0"/><path d="m99.457031 389.417969c2.558594 0 5.121094-.976563 7.070313-2.925781 3.90625-3.90625 3.90625-10.238282 0-14.144532l-6.925782-6.929687h59.101563c14.335937 0 26 11.664062 26 26 0 14.335937-11.664063 26-26 26h-35.019531c-5.523438 0-10 4.476562-10 10 0 5.519531 4.476562 9.996093 10 9.996093h35.019531c25.363281 0 46-20.632812 46-45.996093s-20.636719-45.996094-46-45.996094h-59.101563l6.925782-6.929687c3.90625-3.90625 3.90625-10.238282 0-14.144532-3.902344-3.902344-10.234375-3.902344-14.140625 0l-24 24c-3.902344 3.90625-3.902344 10.238282 0 14.144532l24 23.996093c1.953125 1.953125 4.511719 2.929688 7.070312 2.929688zm0 0"/><path d="m46.074219 476.449219c-2.84375 0-5.667969-1.210938-7.640625-3.558594l-.019532-.023437c-3.554687-4.226563-3.007812-10.53125 1.21875-14.085938 4.226563-3.558594 10.535157-3.011719 14.089844 1.214844 3.550782 4.230468 3.015625 10.546875-1.210937 14.101562-1.878907 1.578125-4.164063 2.351563-6.4375 2.351563zm0 0"/>
+                           </svg>
+                       </span>
+                       <div class="flex flex-col ml-1">
+                        <span class="text-xs">
+                          <ion-label>
+                            <strong>
+                              Retour/échange
+                            </strong>
+                          </ion-label>
+                        </span>
+                           <span class="text-xs">
+                          <ion-label>
+                            15 jours
+                          </ion-label>
+                        </span>
+                       </div>
+                   </div>
+               </ion-col>
+           </ion-row>
+       </ion-grid>
+    </div>
+    <div class="pad-t-5">
+        <ion-label class="pad-5" style="font-weight: 300; opacity: 50%"><strong class="pad-t-5 text-sm">Informations sur la
+            Livraison et de retour</strong></ion-label>
+    </div>
+    <div class="card border-t-light border-b-light" *ngIf="product">
+        <div class="pad-5">
+          <div class="flex border-b-lightgray pad-2 pad-b-2">
+            <span class="border-a w-3 h-3 block flex items-center ion-justify-content-center bg-transparent flex-shrink-0">
+              <ion-icon name="send-outline"></ion-icon>
+            </span>
+            <div class="flex flex-col ml-3">
+                <span class="text-sm">
+                  <ion-label>
+                    <strong>
+                      Livraison Standard
+                    </strong>
+                  </ion-label>
+                </span>
+                <span class="text-xs">
+                  <ion-label>
+                    Livraison rapide sur Grand Tunis.<a class="delivery-infos-link pad-l-1">Details</a>
+                  </ion-label>
+                </span>
+            </div>
+          </div>
+          <div class="flex border-b-lightgray pad-2 pad-b-2 pad-t-2">
+            <span class="border-a w-3 h-3 block flex items-center ion-justify-content-center bg-transparent flex-shrink-0">
+              <svg class="w-3 h-3" enable-background="new 0 0 512 512" version="1.1" viewBox="0 0 512 512" xml:space="preserve"
+                   xmlns="http://www.w3.org/2000/svg">
+                <path d="m476.16 231.36-13.259-53.035c3.625-0.77 6.345-3.986 6.345-7.839v-8.551c0-18.566-15.105-33.67-33.67-33.67h-60.392v-17.638c0-9.136-7.432-16.568-16.568-16.568h-307.84c-9.136 0-16.568 7.432-16.568 16.568v145.37c0 4.427 3.589 8.017 8.017 8.017 4.427 0 8.017-3.589 8.017-8.017v-145.37c0-0.295 0.239-0.534 0.534-0.534h307.84c0.295 0 0.534 0.239 0.534 0.534v145.37c0 4.427 3.589 8.017 8.017 8.017 4.427 0 8.017-3.589 8.017-8.017v-9.088h94.569c8e-3 0 0.014 2e-3 0.021 2e-3 8e-3 0 0.015-1e-3 0.022-1e-3 11.637 8e-3 21.518 7.646 24.912 18.171h-24.928c-4.427 0-8.017 3.589-8.017 8.017v17.102c0 13.851 11.268 25.119 25.119 25.119h9.086v35.273h-20.962c-6.886-19.883-25.787-34.205-47.982-34.205s-41.097 14.322-47.982 34.205h-3.86v-60.393c0-4.427-3.589-8.017-8.017-8.017-4.427 0-8.017 3.589-8.017 8.017v60.391h-166.33c-6.886-19.883-25.787-34.205-47.982-34.205s-41.097 14.322-47.982 34.205h-46.081c-0.295 0-0.534-0.239-0.534-0.534v-17.637h34.739c4.427 0 8.017-3.589 8.017-8.017s-3.589-8.017-8.017-8.017h-76.96c-4.427 0-8.017 3.589-8.017 8.017s3.589 8.017 8.017 8.017h26.188v17.637c0 9.136 7.432 16.568 16.568 16.568h43.304c-2e-3 0.178-0.014 0.355-0.014 0.534 0 27.996 22.777 50.772 50.772 50.772s50.772-22.776 50.772-50.772c0-0.18-0.012-0.356-0.014-0.534h180.67c-2e-3 0.178-0.014 0.355-0.014 0.534 0 27.996 22.777 50.772 50.772 50.772s50.772-22.776 50.772-50.772c0-0.18-0.012-0.356-0.014-0.534h26.203c4.427 0 8.017-3.589 8.017-8.017v-85.511c1e-3 -21.112-15.576-38.653-35.841-41.738zm-100.98-87.062h60.392c9.725 0 17.637 7.912 17.637 17.637v0.534h-78.029v-18.171zm0 86.58v-52.376h71.235l13.094 52.376h-84.329zm-230.35 171.02c-19.155 0-34.739-15.583-34.739-34.739s15.584-34.739 34.739-34.739 34.739 15.583 34.739 34.739-15.584 34.739-34.739 34.739zm282.19 0c-19.155 0-34.739-15.583-34.739-34.739s15.584-34.739 34.739-34.739 34.739 15.583 34.739 34.739-15.584 34.739-34.739 34.739zm68.944-102.61h-9.086c-5.01 0-9.086-4.076-9.086-9.086v-9.086h18.171v18.172z"/>
+                <path d="m144.84 350.6c-9.136 0-16.568 7.432-16.568 16.568s7.432 16.568 16.568 16.568 16.568-7.432 16.568-16.568-7.432-16.568-16.568-16.568z"/>
+                <path d="m427.02 350.6c-9.136 0-16.568 7.432-16.568 16.568s7.432 16.568 16.568 16.568 16.568-7.432 16.568-16.568-7.432-16.568-16.568-16.568z"/>
+                <path d="m332.96 316.39h-119.72c-4.427 0-8.017 3.589-8.017 8.017s3.589 8.017 8.017 8.017h119.72c4.427 0 8.017-3.589 8.017-8.017s-3.589-8.017-8.017-8.017z"/>
+                <path d="m127.73 282.19h-102.61c-4.427 0-8.017 3.589-8.017 8.017s3.589 8.017 8.017 8.017h102.61c4.427 0 8.017-3.589 8.017-8.017s-3.59-8.017-8.017-8.017z"/>
+                <path d="m278.77 173.37c-3.13-3.13-8.207-3.13-11.337 1e-3l-71.292 71.291-37.087-37.087c-3.131-3.131-8.207-3.131-11.337 0-3.131 3.131-3.131 8.206 0 11.337l42.756 42.756c1.565 1.566 3.617 2.348 5.668 2.348s4.104-0.782 5.668-2.348l76.96-76.96c3.131-3.132 3.131-8.207 1e-3 -11.338z"/>
+                </svg>
+            </span>
+              <div class="flex flex-col ml-3">
+                <span class="text-sm">
+                  <ion-label>
+                    <strong>
+                      Informations sur la livraison
+                    </strong>
+                  </ion-label>
+                </span>
+               <span class="text-xs">
+                  <ion-label>
+                    Pourrait être livré entre mercredi 17 juin et vendredi 19 juin. Plus d'informations lors
+                    de la finalisation de votre commande.
+                  </ion-label>
+                </span>
+              </div>
+           </div>
+             <div class="flex pad-2 pad-b-1 pad-t-1">
+               <span class="border-a w-3 h-3 block flex items-center ion-justify-content-center bg-transparent flex-shrink-0">
+                 <svg class="w-3 h-3" height="512" viewBox="0 0 192 192" width="512" xmlns="http://www.w3.org/2000/svg"><g id="_21-feedback" data-name="21-feedback">
+                     <path d="m56 120a24 24 0 1 0 -24 24 24.027 24.027 0 0 0 24-24zm-24 8a8 8 0 1 1 8-8 8.009 8.009 0 0 1 -8 8z"/>
+                     <path d="m40 144h-16a24.027 24.027 0 0 0 -24 24v16a8 8 0 0 0 8 8h48a8 8 0 0 0 8-8v-16a24.027 24.027 0 0 0 -24-24zm8 32h-32v-8a8.009 8.009 0 0 1 8-8h16a8.009 8.009 0 0 1 8 8z"/>
+                     <path d="m120 0c-39.7 0-72 28.71-72 64 0 17.366 7.819 33.756 21.647 45.761l-5.236 15.709c-2.2 6.607 4.912 12.814 11.167 9.685l21.161-10.58a79.862 79.862 0 0 0 23.261 3.425c39.7 0 72-28.71 72-64s-32.3-64-72-64zm0 112a63.7 63.7 0 0 1 -21.238-3.6 8 8 0 0 0 -6.238.39l-6.824 3.417.894-2.683a8 8 0 0 0 -2.868-8.989c-12.538-9.16-19.726-22.477-19.726-36.535 0-26.468 25.122-48 56-48s56 21.532 56 48-25.122 48-56 48z"/>
+                     <circle cx="120" cy="64" r="8"/><circle cx="144" cy="64" r="8"/><circle cx="96" cy="64" r="8"/></g></svg>
+               </span>
+                 <div class="flex flex-col ml-3">
+                    <span class="text-sm">
+                      <ion-label>
+                        <strong>
+                          Modalités de retour
+                        </strong>
+                      </ion-label>
+                    </span>
+                    <span class="text-xs">
+                      <ion-label>
+                       Retours gratuit sous condition, 15 jours maximum
+                      </ion-label>
+                    </span>
+                 </div>
+             </div>
+         </div>
+    </div>
+    <div class="pad-t-5">
+        <ion-label class="pad-5" style="font-weight: 300; opacity: 50%"><strong class="pad-t-5 text-sm">
+            Avis des clients sur le produit</strong></ion-label>
+    </div>
+    <div class="card border-t-light border-b-light" *ngIf="product">
+        <div class="text-sm ion-no-padding border-b-lightgray border-t-lightgray" style="font-weight: bold; color: gray">
+            <ion-button class="btn-link flex-row justify-between justify-center ion-no-padding" routerDirection="forward" routerLink="/comment-list/{{product.id}}" fill="clear">
+                <span class="pl-1 text-xm">Evaluation du produit et commentaires</span>
+                <ion-icon class="ion-float-right pr-1 relative" name="chevron-forward-outline" slot="end" color="medium"></ion-icon>
+            </ion-button>
+        </div>
+        <div *ngIf="product.comments.length !== 0">
+            <div *ngFor="let comment of product.comments; let i = index">
+                <app-comment-post [product]="product" [comment]="comment" *ngIf="i<3"></app-comment-post>
+            </div>
+        </div>
+        <div *ngIf="product.comments.length === 0" class="ion-text-center">
+            <ion-label class="ion-padding-start ion-padding-top ion-text-center">Aucun commentaire sur ce produit</ion-label>
+        </div>
+    </div>
+    <div class="ion-text-center" *ngIf="product.comments.length > 3">
+        <ion-button fill="clear" routerDirection="forward" routerLink="/comment-list/{{product.id}}">
+            <ion-label><a class="delivery-infos-link">All...</a></ion-label>
+        </ion-button>
+    </div>
+    <div class="pad-t-5">
+        <ion-label class="pad-5" style="font-weight: 300; opacity: 50%"><strong class="pad-t-5 text-sm">
+            Informations sur le vendeur</strong></ion-label>
+    </div>
+    <div class="card border-t-light" *ngIf="product" (click)="SellerProfile()">
+        <div class="pad-5">
+            <div class="flex-col">
+               <div class="flex">
+                     <span class="border-rds p-2 block flex items-center ion-justify-content-center flex-shrink-0 bg-light rounded-full mr-2">
+                        <svg class="w-3 h-3" height="496pt" viewBox="0 0 496 496" width="496pt" xmlns="http://www.w3.org/2000/svg">
+                            <path d="m56 448h16v16h-16zm0 0"/>
+                            <path d="m88 448h16v16h-16zm0 0"/>
+                            <path d="m120 448h16v16h-16zm0 0"/>
+                            <path d="m496 414.550781v-45.109375l-20.191406-4.050781c-1.519532-4.78125-3.441406-9.414063-5.738282-13.847656l11.425782-17.144531-31.894532-31.894532-17.136718 11.433594c-4.441406-2.304688-9.074219-4.226562-13.855469-5.746094l-4.050781-20.191406h-38.558594v-97.136719c13.761719-3.574219 24-15.992187 24-30.863281v-25.601562l-40-96v-38.398438h-320v38.398438l-40 96v25.601562c0 14.871094 10.238281 27.289062 24 30.863281v305.136719h390.558594l4.042968-20.191406c4.78125-1.511719 9.414063-3.441406 13.855469-5.746094l17.136719 11.433594 31.894531-31.894532-11.425781-17.144531c2.304688-4.441406 4.21875-9.074219 5.738281-13.847656zm-182.0625-63.007812c-1.738281 3.34375-3.175781 6.824219-4.464844 10.367187-4.242187-11.535156-13.601562-20.703125-25.976562-24.421875l-51.496094-15.441406v-14.367187c9.792969-8.792969 16-21.503907 16-35.679688v-24c0-26.472656-21.527344-48-48-48s-48 21.527344-48 48v24c0 14.167969 6.207031 26.878906 16 35.679688v14.367187l-51.496094 15.449219c-17.046875 5.113281-28.503906 20.511718-28.503906 38.320312v40.183594h-16v-225.136719c2.574219.671875 5.222656 1.136719 8 1.136719 9.601562 0 18.128906-4.335938 24-11.054688 5.871094 6.71875 14.398438 11.054688 24 11.054688s18.128906-4.335938 24-11.054688c5.871094 6.71875 14.398438 11.054688 24 11.054688s18.128906-4.335938 24-11.054688c5.871094 6.71875 14.398438 11.054688 24 11.054688s18.128906-4.335938 24-11.054688c5.871094 6.71875 14.398438 11.054688 24 11.054688s18.128906-4.335938 24-11.054688c5.871094 6.71875 14.398438 11.054688 24 11.054688 2.777344 0 5.425781-.464844 8-1.136719v118.058594l-25.488281 25.484375zm-65.9375 24.457031v40h-96v-40h-16v40h-32v-40.183594c0-10.679687 6.871094-19.921875 17.105469-22.992187l52.621093-15.785157 26.273438 26.273438 26.28125-26.28125 52.613281 15.785156c7.65625 2.296875 13.425781 8.046875 15.847657 15.273438l-6.742188 1.359375v45.109375l7.214844 1.441406h-31.214844v-40zm-48-72c-17.648438 0-32-14.351562-32-32v-24c0-17.648438 14.351562-32 32-32s32 14.351562 32 32v24c0 17.648438-14.351562 32-32 32zm0 16c5.617188 0 10.984375-1.023438 16-2.800781v7.488281l-16 16-16-16v-7.488281c5.015625 1.777343 10.382812 2.800781 16 2.800781zm-123.097656-272-26.671875 80h-30.230469l33.335938-80zm269.761718 0 33.335938 80h-30.230469l-26.671875-80zm-10.664062 112c0 8.824219-7.175781 16-16 16s-16-7.175781-16-16v-16h32zm-224-16h32v16c0 8.824219-7.175781 16-16 16s-16-7.175781-16-16zm48 0h32v16c0 8.824219-7.175781 16-16 16s-16-7.175781-16-16zm48 0h32v16c0 8.824219-7.175781 16-16 16s-16-7.175781-16-16zm48 0h32v16c0 8.824219-7.175781 16-16 16s-16-7.175781-16-16zm76.902344-16h-30.878906l-19.800782-80h24.015625zm-67.148438-80 20 80h-30.394531l-6.664063-80zm-33.113281 0 6.6875 80h-31.328125v-80zm-40.640625 80h-31.304688l6.664063-80h24.640625zm-47.335938 0h-30.417968l20-80h17.066406zm-46.910156 0h-30.65625l26.664063-80h23.992187zm-1.753906 16v16c0 8.824219-7.175781 16-16 16s-16-7.175781-16-16v-16zm248 36.945312c4.167969 4.773438 9.679688 8.277344 16 9.917969v119.304688c-2.878906 1.128906-5.710938 2.351562-8.457031 3.769531l-7.542969-5.035156zm24-4.945312c-8.824219 0-16-7.175781-16-16v-16h32v16c0 8.824219-7.175781 16-16 16zm-24-160v16h-288v-16zm-328 144v-16h32v16c0 8.824219-7.175781 16-16 16s-16-7.175781-16-16zm24 30.863281c6.320312-1.640625 11.832031-5.144531 16-9.917969v251.054688h257.71875c.074219.152344.136719.304688.210938.457031l-11.425782 17.144531 30.417969 30.398438h-292.921875zm296.648438 289.136719 14.894531-9.9375c4.441406 2.304688 9.074219 4.226562 13.855469 5.746094l.839843 4.191406zm126.296874-75.152344-1.242187 4.886719c-1.703125 6.707031-4.351563 13.097656-7.863281 18.992187l-2.582032 4.328126 9.652344 14.488281-13.351562 13.351562-14.480469-9.648437-4.335937 2.578125c-5.902344 3.519531-12.292969 6.167969-19 7.871093l-4.878907 1.242188-3.421875 17.0625h-18.882812l-3.414063-17.054688-4.878906-1.242187c-6.707031-1.710937-13.097656-4.351563-19-7.871094l-4.335937-2.574219-14.480469 9.644532-13.351563-13.351563 9.65625-14.488281-2.585937-4.328125c-3.511719-5.894531-6.160157-12.285156-7.863281-18.992187l-1.242188-4.886719-17.0625-3.40625v-18.890625l17.054688-3.40625 1.242187-4.886719c1.703125-6.707031 4.351563-13.097656 7.863281-18.992187l2.582032-4.328126-9.652344-14.488281 13.351562-13.351562 14.480469 9.648437 4.335937-2.578125c5.902344-3.519531 12.292969-6.167969 19-7.871093l4.878907-1.242188 3.421875-17.0625h18.882812l3.414063 17.054688 4.878906 1.242187c6.707031 1.710937 13.097656 4.351563 19 7.871094l4.335937 2.574219 14.480469-9.644532 13.351563 13.351563-9.65625 14.488281 2.585937 4.328125c3.511719 5.894531 6.160157 12.285156 7.863281 18.992187l1.242188 4.886719 17.0625 3.40625v18.890625zm0 0"/>
+                            <path d="m392 336c-11.664062 0-22.878906 3.59375-32.425781 10.390625l9.28125 13.035156c6.824219-4.859375 14.824219-7.425781 23.144531-7.425781 22.054688 0 40 17.945312 40 40 0 8.320312-2.566406 16.320312-7.425781 23.144531l13.035156 9.28125c6.796875-9.554687 10.390625-20.761719 10.390625-32.425781 0-30.871094-25.121094-56-56-56zm0 0"/>
+                            <path d="m392 432c-22.054688 0-40-17.945312-40-40 0-8.320312 2.566406-16.320312 7.425781-23.144531l-13.035156-9.28125c-6.796875 9.554687-10.390625 20.761719-10.390625 32.425781 0 30.871094 25.121094 56 56 56 11.664062 0 22.878906-3.59375 32.425781-10.390625l-9.28125-13.035156c-6.824219 4.859375-14.824219 7.425781-23.144531 7.425781zm0 0"/>
+                        </svg>
+                    </span>
+                   <div class="flex flex-col">
+                       <span>
+                    John Doe
+                    </span>
+                       <span>
+                           <ion-icon name="star" color="warning"></ion-icon>
+                           <ion-icon name="star" color="warning"></ion-icon>
+                           <ion-icon name="star" color="warning"></ion-icon>
+                           <ion-icon name="star" color="warning"></ion-icon>
+                           <ion-icon name="star" color="warning"></ion-icon>
+                       </span>
+                   </div>
+               </div>
+            </div>
+        </div>
+    </div>
+</ion-content>

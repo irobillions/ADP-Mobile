@@ -1,0 +1,37 @@
+.header-bg {
+  background-color: #70A9AC;
+
+  ion-header {
+    background-color: #70A9AC;
+  }
+  ion-toolbar {
+    --background: #70A9AC;
+  }
+}
+.adr-ct {
+  display: flex;
+  align-items: center;
+  padding-bottom: 10px;
+  .address-infos {
+    padding-left: 10px;
+    font-weight: 300;
+  }
+}
+
+.address-card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  ion-icon {
+    height: 20px;
+    width: 20px;
+  }
+}
+
+.text-format {
+  padding: 50px 10px;
+}
+.button-format {
+  padding-top: 0;
+  padding-bottom: 0;
+}

@@ -1,0 +1,85 @@
+<app-header [title]="'order detail'" [defaultBack]="'/orders'"></app-header>
+
+<ion-content [fullscreen]="true" color="light">
+  <div *ngIf="order">
+    <div class="flex flex-row p-3 items-center shadow-xs bg-white overflow-hidden m-0 border-gray-400 border">
+      <div class="flex-shrink-0 w-1/4 p-3 bg-gray-200 mr-2 rounded-full">
+        <img src="../assets/images/box.svg" class="w-12">
+      </div>
+      <div class="flex flex-col flex-grow w-3/4">
+        <div class="flex justify-between items-center">
+                <span>
+                    <span class="text-xs text-gray-600">no</span>
+                  {{ order.trackingNumber }}
+                </span>
+          <span class="">{{ order.amountTTC | currency: 'TND' }}</span>
+        </div>
+        <div class="flex items-center mt-3 justify-between">
+            <span class="text-xs px-2 py-1 rounded-full" [ngClass]="{'bg-green-200 text-green-800': order.orderStatus === 'delivered' || order.orderStatus ==='processed',
+                                                                       'bg-yellow-200 text-yellow-800': order.orderStatus === 'transit',
+                                                                       'bg-red-200 text-red-800': order.orderStatus === 'canceled'}" >{{ order.orderStatus }}</span>
+          <span class="text-sm text-gray-600" *ngIf="order.orderStatus === 'delivered'">{{ order.deliveryDateAchieved | date: 'dd-MM-y'}}</span>
+          <span class="text-sm text-gray-600" *ngIf="order.orderStatus === 'processed'">{{ order.orderDate | date: 'dd-MM-y'}}</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+  <div class="card-body"></div>
+  <span class="ion-padding-start">
+    Articles dans votre commandes
+  </span>
+  <div *ngIf="order">
+    <div *ngFor="let item of order.orderItems" class="border-none bg-white px-2 shadow-xs">
+      <ion-grid>
+        <ion-row class="article ion-no-padding">
+          <ion-col size="4" class="ion-no-padding">
+            <div class="ion-no-padding">
+              <ion-img src="../assets/images/frein.jpg" class="shadow-sm p-2 rounded"></ion-img>
+            </div>
+          </ion-col>
+          <ion-col size="8">
+            <span class="font-bold text-gray-700 text-sm"> {{ item.name | uppercase }}</span>
+            <div class="flex justify-between mb-2 items-baseline">
+              <span class="text-sm text-gray-600">Qualité</span>
+              <span class="text-gray-800">Adaptable</span>
+            </div>
+            <div class="flex justify-between mb-2 items-baseline">
+              <span class="text-sm text-gray-600">Quantité</span>
+              <span class="text-gray-800">{{ item.quantity }}</span>
+            </div>
+            <div class="flex justify-between mb-2 items-baseline">
+              <span class="text-sm text-gray-600">Price</span>
+              <span class="text-gray-800">255 TND</span>
+            </div>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </div>
+  </div>
+  <div class="mt-3">
+      <ion-button class="px-4 w-full" color="primary" fill="solid">Recommander</ion-button>
+  </div>
+  <div class="ion-padding-start text-gray-700 mt-8">
+    Paiement
+  </div>
+  <div class="bg-white flex flex-col items-start justify-center shadow-xs" *ngIf="order" style="height: 50px;">
+    <span class="ion-padding-start inline-flex items-center justify-center">
+        {{ order.paiementMethod }}
+    </span>
+  </div>
+  <div class="ion-padding-start text-gray-700 mt-8">Adresse de Livraison</div>
+  <div class="item" *ngIf="order">
+    <div class="ion-padding-start ion-padding-top" *ngIf="adr">
+      <ion-label>
+          {{ adr.street }}
+      </ion-label>
+      <div class="text-gray-700 text-sm flex items-center">
+        <span class="mr-2">
+          <svg class="w-4 h-4" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" stroke="currentColor"><path d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+        </span>
+        <span>{{ adr.zipCode }} {{ adr.city }}, {{ adr.country }}</span>
+      </div>
+    </div>
+  </div>
+</ion-content>

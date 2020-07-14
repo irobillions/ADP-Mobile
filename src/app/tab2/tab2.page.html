@@ -1,17 +1,159 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
-      Tab 2
-    </ion-title>
-  </ion-toolbar>
-</ion-header>
+<app-search-bar></app-search-bar>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Tab 2</ion-title>
-    </ion-toolbar>
-  </ion-header>
-
-  <app-explore-container name="Tab 2 page"></app-explore-container>
+<ion-content color="light" [fullscreen]="false">
+  <div class="card-body"></div>
+  <ion-label class="ion-padding-start" style="font-weight: 300; opacity: 50%"><strong>Top categories</strong></ion-label>
+  <div class="card">
+    <ion-grid class="ion-no-padding">
+      <ion-row>
+        <ion-col size="4" class="category-card">
+          <ion-card class="category-image shadow-xl">
+            <ion-card-content class="ion-no-padding">
+              <ion-avatar class="ion-text-center">
+                <ion-img src="../assets/images/frein.jpg"></ion-img>
+              </ion-avatar>
+            </ion-card-content>
+            <ion-footer class="category-title">
+            <ion-item-divider>
+              freins
+            </ion-item-divider>
+          </ion-footer>
+          </ion-card>
+        </ion-col>
+        <ion-col size="4" class="category-card">
+          <ion-card class="category-image shadow-xl">
+            <ion-card-content class="ion-no-padding">
+              <ion-avatar class="ion-text-center">
+                <ion-img src="../assets/images/frein.jpg"></ion-img>
+              </ion-avatar>
+            </ion-card-content>
+            <ion-footer class="category-title">
+              <ion-item-divider>
+                freins
+              </ion-item-divider>
+            </ion-footer>
+          </ion-card>
+        </ion-col>
+        <ion-col size="4" class="category-card">
+          <ion-card class="category-image shadow-xl">
+            <ion-card-content class="ion-no-padding">
+              <ion-avatar class="ion-text-center">
+                <ion-img src="../assets/images/frein.jpg"></ion-img>
+              </ion-avatar>
+            </ion-card-content>
+            <ion-footer class="category-title">
+              <ion-item-divider>
+                freins
+              </ion-item-divider>
+            </ion-footer>
+          </ion-card>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col size="4" class="category-card">
+          <ion-card class="category-image shadow-xl">
+            <ion-card-content class="ion-no-padding">
+              <ion-avatar class="ion-text-center">
+                <ion-img src="../assets/images/frein.jpg"></ion-img>
+              </ion-avatar>
+            </ion-card-content>
+            <ion-footer class="category-title">
+              <ion-item-divider>
+                freins
+              </ion-item-divider>
+            </ion-footer>
+          </ion-card>
+        </ion-col>
+        <ion-col size="4" class="category-card">
+          <ion-card class="category-image shadow-xl">
+            <ion-card-content class="ion-no-padding">
+              <ion-avatar class="ion-text-center">
+                <ion-img src="../assets/images/frein.jpg"></ion-img>
+              </ion-avatar>
+            </ion-card-content>
+            <ion-footer class="category-title">
+              <ion-item-divider>
+                freins
+              </ion-item-divider>
+            </ion-footer>
+          </ion-card>
+        </ion-col>
+        <ion-col size="4" class="category-card">
+          <ion-card class="category-image shadow-xl">
+            <ion-card-content class="ion-no-padding">
+              <ion-avatar class="ion-text-center">
+                <ion-img src="../assets/images/frein.jpg"></ion-img>
+              </ion-avatar>
+            </ion-card-content>
+            <ion-footer class="category-title">
+              <ion-item-divider>
+                freins
+              </ion-item-divider>
+            </ion-footer>
+          </ion-card>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </div>
+  <div class="card-body"></div>
+  <ion-label class="ion-padding-start" style="font-weight: 300; opacity: 50%"><strong>All categories</strong></ion-label>
+  <div class="card">
+    <ion-grid class="ion-no-padding">
+      <div *ngFor="let category of categories; let i = index">
+      <ion-row *ngIf="i % 3 === 0 ">
+          <ion-col size="4" *ngIf="i<categories.length" class="category-card">
+            <ion-card class="category-image shadow-xl" (click)="goOnProductListPage(categories[i].id, categories[i].name)">
+              <ion-card-content class="ion-no-padding">
+                <ion-avatar class="ion-text-center">
+                  <ion-img src="../assets/images/frein.jpg"></ion-img>
+                </ion-avatar>
+              </ion-card-content>
+              <ion-footer class="category-title">
+                <ion-item-divider>
+                  {{ categories[i].name }}
+                </ion-item-divider>
+              </ion-footer>
+            </ion-card>
+          </ion-col>
+          <ion-col size="4" *ngIf="i+1<categories.length" class="category-card">
+            <ion-card class="category-image shadow-xl" (click)="goOnProductListPage(categories[i+1].id, categories[i+1].name)">
+              <ion-card-content class="ion-no-padding">
+                <ion-avatar class="ion-text-center">
+                  <ion-img src="../assets/images/frein.jpg"></ion-img>
+                </ion-avatar>
+              </ion-card-content>
+              <ion-footer class="category-title">
+                <ion-item-divider>
+                  {{ categories[i+1].name }}
+                </ion-item-divider>
+              </ion-footer>
+            </ion-card>
+          </ion-col>
+          <ion-col size="4" *ngIf="i+2<categories.length" class="category-card">
+            <ion-card class="category-image shadow-xl" (click)="goOnProductListPage(categories[i+2].id, categories[i+2].name)">
+              <ion-card-content class="ion-no-padding">
+                <ion-avatar class="ion-text-center">
+                  <ion-img src="../assets/images/frein.jpg"></ion-img>
+                </ion-avatar>
+              </ion-card-content>
+              <ion-footer class="category-title">
+                <ion-item-divider>
+                  {{ categories[i+2].name }}
+                </ion-item-divider>
+              </ion-footer>
+            </ion-card>
+          </ion-col>
+        </ion-row>
+      </div>
+    </ion-grid>
+  </div>
 </ion-content>
+<ng-template #skeleton>
+  <ion-list>
+    <ion-item *ngFor="let item of [1, 2, 3, 4, 5]">
+      <ion-thumbnail slot="start">
+        <ion-skeleton-text animated></ion-skeleton-text>
+      </ion-thumbnail>
+    </ion-item>
+  </ion-list>
+</ng-template>

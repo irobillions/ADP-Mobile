@@ -1,0 +1,44 @@
+<app-header [title]="'quote list'" [defaultBack]="'/tabs/tabs/tab5'"></app-header>
+
+<ion-content color="light">
+    <div class="flex px-2 items-center justify-between bg-white py-2 shadow-md">
+        <h3 class="font-medium m-0">Vos devis</h3>
+        <ion-button class="text-blue-500 text-sm inline-flex ion-no-margin ion-no-padding items-center" fill="clear" (click)="createNewQuote()">
+            <svg class="w-4 h-4 mr-1" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" stroke="currentColor"><path d="M12 4v16m8-8H4"></path></svg>
+            <span class="pr-1">
+                ajouter un devis
+            </span>
+        </ion-button>
+    </div>
+    <div>
+        <div class="mx-2 my-4" (click)="goOnQuoteView()">
+            <div class="p-2 bg-white rounded-md shadow-sm">
+                <div class="flex flex-col mb-2">
+                    <div class="flex items-center justify-between">
+                        <span class="uppercase text-sm font-medium text-gray-500">Devis #1</span>
+                        <span class="inline-block text-xs px-2 py-1 bg-yellow-300 text-yellow-800 rounded-full">
+                            Processed
+                        </span>
+                    </div>
+                    <span>Demande de validation</span>
+                    <span class="text-sm text-gray-800 mb-3 w-full truncate">
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium asperiores cupiditate dicta eligendi incidunt maiores molestiae natus neque nesciunt nulla perspiciatis, quas quo quod repellat sapiente tenetur unde, ut velit voluptate voluptatem. Culpa distinctio, excepturi ipsam iusto modi quibusdam sint suscipit voluptatum? Debitis iusto tempore ut? A aliquam amet aspernatur assumenda at culpa cumque deserunt doloribus ea earum eius et eum exercitationem facilis, fugit, harum illo incidunt iusto maiores modi obcaecati odio perspiciatis praesentium quia quibusdam suscipit temporibus, vitae! Aliquam esse harum illo illum laboriosam sint suscipit. Consequatur dolores facere fuga quo tenetur. Dolores earum error explicabo, hic laborum quam.
+                    </span>
+                    <div class="flex items-center justify-between">
+                    <span class="text-xs inline-flex items-center text-gray-800">
+                        <svg class="w-4 h-4 mr-1" fill="none" stroke-linecap="round" stroke-linejoin="round"
+                             stroke-width="2" viewBox="0 0 24 24" stroke="currentColor"><path
+                                d="M5.121 17.804A13.937 13.937 0 0112 16c2.5 0 4.847.655 6.879 1.804M15 10a3 3 0 11-6 0 3 3 0 016 0zm6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                        Komi Koutche
+                    </span>
+                        <span class="text-gray-600 text-xs inline-flex items-center text-gray-800">
+                            <svg class="w-4 h-4 mr-1" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                 viewBox="0 0 24 24" stroke="currentColor"><path
+                                    d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
+                            May 18, 2020</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</ion-content>

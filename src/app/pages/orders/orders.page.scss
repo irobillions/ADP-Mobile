@@ -1,0 +1,37 @@
+.header-bg {
+  background-color: #70A9AC;
+
+  ion-header {
+    background-color: #70A9AC;
+  }
+  ion-toolbar {
+    --background: #70A9AC;
+  }
+}
+.toolbar {
+  background: var(--ion-color-light-shade);
+}
+.aligns-div {
+  display: flex;
+  align-items: center;
+}
+.item {
+  background-color: white;
+  width: auto;
+  padding: 0;
+  border: 0.5px solid lightgray;
+  margin: 0;
+}
+.icon {
+  padding-right: 5px;
+  padding-top: 10px;
+}
+.icon-tall {
+  ion-icon {
+    width: 40px;
+    height: 25px;
+  }
+  ion-searchbar {
+    border-right: 2px solid lightgray;
+  }
+}

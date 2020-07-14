@@ -1,0 +1,65 @@
+<ion-header class="header-bg">
+  <ion-toolbar mode="ios">
+    <ion-buttons>
+     <ion-button (click)="goBack()">
+       <ion-icon slot="start" name="close-circle-outline" color="light"></ion-icon>
+     </ion-button>
+    </ion-buttons>
+    <ion-title color="light">Filtrer</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" color="light">
+  <div class="card-body"></div>
+  <ion-label class="ion-padding-start" style="font-weight: 300; opacity: 50%"><strong>Types de commandes</strong></ion-label>
+  <ion-card>
+    <ion-radio-group value="{{ OrderFilterList }}" (ionChange)="getOrderFilterList($event)">
+      <div class="align">
+        <ion-radio value="all"></ion-radio>
+        <ion-label>Toutes les commandes</ion-label>
+      </div>
+      <div class="align">
+        <ion-radio value="processed"></ion-radio>
+        <ion-label>Commandes en cours</ion-label>
+      </div>
+      <div class="align">
+        <ion-radio value="canceled"></ion-radio>
+        <ion-label>Commandes annulées</ion-label>
+      </div>
+    </ion-radio-group>
+  </ion-card>
+  <div class="card-body"></div>
+  <ion-label class="ion-padding-start" style="font-weight: 300; opacity: 50%"><strong>Filtre sur le temps</strong></ion-label>
+  <ion-card>
+    <ion-radio-group value="{{ OrderFilterTime }}" (ionChange)="getOrderFilterTime($event)">
+      <div class="align">
+        <ion-radio value="month"></ion-radio>
+        <ion-label>30 derniers jours</ion-label>
+      </div>
+      <div class="align">
+        <ion-radio value="six-month"></ion-radio>
+        <ion-label>6 derniers mois</ion-label>
+      </div>
+      <div class="align">
+        <ion-radio value="2020"></ion-radio>
+        <ion-label>En 2020</ion-label>
+      </div>
+      <div class="align">
+        <ion-radio value="2019"></ion-radio>
+        <ion-label>En 2019</ion-label>
+      </div>
+      <div class="align">
+        <ion-radio value="2018"></ion-radio>
+        <ion-label>En 2018</ion-label>
+      </div>
+    </ion-radio-group>
+  </ion-card>
+  <div class="ion-text-center mt-4">
+    <ion-button color="primary" fill="solid" (click)="filterOrder()">Terminer</ion-button>
+  </div>
+  <div class="ion-text-center">
+    <ion-label color="primary">
+      Le filtre sur le temps ne s'applique pas au commandes en cours ou annulées
+    </ion-label>
+  </div>
+</ion-content>

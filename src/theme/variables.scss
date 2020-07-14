@@ -1,8 +1,12 @@
 // Ionic Variables and Theming. For more info, please see:
 // http://ionicframework.com/docs/theming/
 
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap");
+
 /** Ionic CSS Variables **/
 :root {
+  /**adp**/
+  --ion-color-adp:  #70A9AC;
   /** primary **/
   --ion-color-primary: #3880ff;
   --ion-color-primary-rgb: 56, 128, 255;
@@ -74,6 +78,9 @@
   --ion-color-light-contrast-rgb: 0, 0, 0;
   --ion-color-light-shade: #d7d8da;
   --ion-color-light-tint: #f5f6f9;
+
+  /** ion font**/
+  --ion-font-family: Poppins, sans-serif;
 }
 
 @media (prefers-color-scheme: dark) {

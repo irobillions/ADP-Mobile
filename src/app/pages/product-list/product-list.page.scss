@@ -1,0 +1,188 @@
+.header-bg {
+  background-color: #70A9AC;
+
+  ion-header {
+    background-color: #70A9AC;
+  }
+  ion-toolbar {
+    --background: #70A9AC;
+  }
+}
+
+.grid {
+  display: grid;
+}
+
+.grid-cols-2 {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.grid-cols-1 {
+  grid-template-columns: repeat(1, minmax(0, 1fr));
+}
+
+.gap-5 {
+  gap: 1.25rem;
+}
+
+.pad-5 {
+  padding: 0.5rem;
+}
+
+
+.w-3 {
+  width: 8rem;
+}
+.flex {
+  display: flex;
+}
+
+.flex-row{
+  flex-direction: row !important;
+}
+
+.flex-col {
+  flex-direction: column !important;
+}
+
+.items-center {
+  align-items: center;
+}
+
+.justify-center{
+  justify-content: center;
+}
+
+.col-span-1 {
+  grid-column: span 1 / span 1;
+}
+
+.col-span-2 {
+  grid-column: span 2 / span 2;
+}
+.span-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.price {
+  margin-top: 3px;
+}
+.iconStar {
+  color: #f4e242;
+  vertical-align: middle;
+}
+.my-container-label {
+  padding-top: 10px !important;
+  padding-bottom: 10px !important;
+  .my-label-title {
+    font-weight: 400;
+    font-size: 18px !important;
+  }
+}
+.aligns-div {
+  display: inline;
+  border-right: 2px solid lightgray;
+  align-items: center;
+  justify-content: space-between;
+  div {
+    display: inline;
+    border-right: 2px solid lightgray;
+    align-items: center;
+    justify-content: space-between;
+  }
+}
+.top-nav {
+  ion-col {
+    border-right: 2px solid lightgray;
+  }
+}
+.btn-grid-list {
+  padding-top: 5.5px;
+  padding-left: 9px;
+}
+.tri-select {
+  padding-top: 8px;
+  padding-left: 8px;
+  padding-right: 6px;
+}
+.btn-filter {
+  padding-top: 8px;
+  padding-left: 10px;
+  div {
+    float: right;
+    padding-top: 3px;
+    padding-right: 4px;
+  }
+}
+
+.w-1\/3 {
+  width: 33.333333333%;
+}
+.w-2\/3 {
+  width: 66.666666666%;
+}
+
+.h-1\/3 {
+  height: 33.333333333%;
+}
+.h-2\/3 {
+  height: 66.666666666%;
+}
+
+.h-full {
+  height: 100%;
+}
+
+.block {
+  display: block;
+}
+
+.flex-grow {
+  flex-grow: 1;
+}
+
+.object-fit {
+  object-fit: contain;
+}
+
+.object-center {
+  object-position: center;
+}
+
+.truncate {
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+
+.bottom-0 {
+  bottom: 0;
+}
+
+.right-0 {
+  right: 0;
+}
+
+.top-0 {
+  top: 0;
+}
+
+.absolute {
+  position: absolute;
+}
+
+.relative {
+  position: relative;
+}
+.header-pg {
+  ion-toolbar {
+    padding-top: 0;
+  }
+}
+.wish-list-icon {
+  ion-icon {
+    width: 30px;
+    height: 20px;
+  }
+}

@@ -1,0 +1,54 @@
+<app-header [title]="'car Models'" [defaultBack]="'/tabs/tabs/tab1'"></app-header>
+
+<ion-content color="light">
+  <div>
+    <ion-grid class="ion-no-padding">
+      <div *ngFor="let carModel of carModels; let i = index">
+        <ion-row *ngIf="i % 3 === 0 ">
+          <ion-col size="4" *ngIf="i<carModels.length" class="category-card">
+            <ion-card class="category-image shadow-xl">
+              <ion-card-content class="ion-no-padding ion-no-margin">
+                <div>
+                  <ion-img src="../assets/images/volkswagen-golf.jpg"></ion-img>
+                </div>
+              </ion-card-content>
+              <ion-footer class="category-title">
+                <ion-item-divider>
+                  Golf
+                </ion-item-divider>
+              </ion-footer>
+            </ion-card>
+          </ion-col>
+          <ion-col size="4" *ngIf="i+1<carModels.length" class="category-card">
+            <ion-card class="category-image shadow-xl">
+              <ion-card-content class="ion-no-padding">
+                <div class="ion-text-center">
+                  <ion-img src="../assets/images/volkswagen-golf.jpg"></ion-img>
+                </div>
+              </ion-card-content>
+              <ion-footer class="category-title">
+                <ion-item-divider>
+                 Amarok
+                </ion-item-divider>
+              </ion-footer>
+            </ion-card>
+          </ion-col>
+          <ion-col size="4" *ngIf="i+2<carModels.length" class="category-card">
+            <ion-card class="category-image shadow-xl">
+              <ion-card-content class="ion-no-padding">
+                <div class="ion-text-center">
+                  <ion-img src="../assets/images/volkswagen-golf.jpg" class="ion-no-padding ion-no-margin"></ion-img>
+                </div>
+              </ion-card-content>
+              <ion-footer class="category-title">
+                <ion-item-divider>
+                  seat
+                </ion-item-divider>
+              </ion-footer>
+            </ion-card>
+          </ion-col>
+        </ion-row>
+      </div>
+    </ion-grid>
+  </div>
+</ion-content>

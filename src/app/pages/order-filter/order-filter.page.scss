@@ -1,0 +1,25 @@
+.header-bg {
+  background-color: #70A9AC;
+
+  ion-header {
+    background-color: #70A9AC;
+  }
+  ion-toolbar {
+    --background: #70A9AC;
+  }
+}
+
+.align {
+  display: flex;
+  align-items: center;
+  padding-left: 8px;
+  padding-bottom: 5px;
+  padding-top: 5px;
+  height: 50px;
+  border-bottom: 2px solid lightgray;
+  ion-label {
+    padding-left: 10px;
+    font-size: 14px;
+    font-weight: 500;
+  }
+}

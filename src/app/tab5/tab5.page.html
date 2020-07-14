@@ -1,0 +1,52 @@
+<ion-header  class="menu-header-bg">
+  <div class="header-content">
+    <ion-img src="../assets/images/avatar.png"></ion-img>
+    <ion-label class="user-infos">
+      <h2>{{ user.firstName }} {{ user.lastName }}</h2>
+      <p> {{ user.email }}</p>
+    </ion-label>
+  </div>
+  <ion-label class="greeting">Bonjour, {{ user.firstName }}</ion-label>
+</ion-header>
+<ion-content [fullscreen]="true" color="light">
+  <ion-list>
+    <div *ngFor="let page of appPages; let i = index">
+      <ion-item (click)="selectedIndex = i" routerDirection="forward" [routerLink]="[page.url]" lines="inset" detail="false" [class.selected]="selectedIndex == i">
+        <ion-icon slot="start" [ios]="page.icon + '-outline'" [md]="page.icon + '-sharp'"></ion-icon>
+        <ion-label>{{ page.title }}</ion-label>
+      </ion-item>
+    </div>
+  </ion-list>
+
+  <div class="label-support">
+    <ion-label>Programmes et services</ion-label>
+  </div>
+  <ion-list>
+    <div *ngFor="let el of labels; let i = index">
+      <ion-item (click)="selectedIndexPS = i" routerDirection="forward" [routerLink]="[el.url]" lines="inset" detail="false" [class.selected]="selectedIndexPS == i">
+        <ion-icon slot="start" [ios]="el.icon + '-outline'" [md]="el.icon + '-sharp'"></ion-icon>
+        <ion-label>{{ el.title }}</ion-label>
+      </ion-item>
+    </div>
+  </ion-list>
+
+  <div>
+    <ion-label class="label-support">Autres</ion-label>
+  </div>
+
+  <ion-list>
+    <div *ngFor="let o of others; let i = index">
+      <ion-item (click)="selectedIndexOth = i" routerDirection="forward" [routerLink]="[o.url]" lines="inset" detail="false" [class.selected]="selectedIndexOth == i">
+        <ion-icon slot="start" [ios]="o.icon + '-outline'" [md]="o.icon + '-sharp'"></ion-icon>
+        <ion-label>{{ o.title }}</ion-label>
+      </ion-item>
+    </div>
+    <div>
+      <ion-item (click)="onLogout()" lines="inset" detail="false" [class.selected]="selectedDec === true">
+        <ion-icon slot="start" ios="log-out-outline" md="log-out-sharp"></ion-icon>
+        <ion-label>déconnexion</ion-label>
+      </ion-item>
+    </div>
+  </ion-list>
+</ion-content>
+
