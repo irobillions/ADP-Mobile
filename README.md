@@ -1,3 +1,3 @@
 # ADP-Mobile
-npm install
-ionic serve -l
+# npm install
+# ionic serve -l
