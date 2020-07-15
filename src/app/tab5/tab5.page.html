@@ -11,7 +11,7 @@
 <ion-content [fullscreen]="true" color="light">
   <ion-list>
     <div *ngFor="let page of appPages; let i = index">
-      <ion-item (click)="selectedIndex = i" routerDirection="forward" [routerLink]="[page.url]" lines="inset" detail="false" [class.selected]="selectedIndex == i">
+      <ion-item (click)="selectedIndex = i" routerDirection="forward" [routerLink]="[page.url]" lines="inset" detail="false">
         <ion-icon slot="start" [ios]="page.icon + '-outline'" [md]="page.icon + '-sharp'"></ion-icon>
         <ion-label>{{ page.title }}</ion-label>
       </ion-item>
@@ -23,7 +23,7 @@
   </div>
   <ion-list>
     <div *ngFor="let el of labels; let i = index">
-      <ion-item (click)="selectedIndexPS = i" routerDirection="forward" [routerLink]="[el.url]" lines="inset" detail="false" [class.selected]="selectedIndexPS == i">
+      <ion-item (click)="selectedIndexPS = i" routerDirection="forward" [routerLink]="[el.url]" lines="inset" detail="false">
         <ion-icon slot="start" [ios]="el.icon + '-outline'" [md]="el.icon + '-sharp'"></ion-icon>
         <ion-label>{{ el.title }}</ion-label>
       </ion-item>
@@ -36,7 +36,7 @@
 
   <ion-list>
     <div *ngFor="let o of others; let i = index">
-      <ion-item (click)="selectedIndexOth = i" routerDirection="forward" [routerLink]="[o.url]" lines="inset" detail="false" [class.selected]="selectedIndexOth == i">
+      <ion-item (click)="selectedIndexOth = i" routerDirection="forward" [routerLink]="[o.url]" lines="inset" detail="false">
         <ion-icon slot="start" [ios]="o.icon + '-outline'" [md]="o.icon + '-sharp'"></ion-icon>
         <ion-label>{{ o.title }}</ion-label>
       </ion-item>

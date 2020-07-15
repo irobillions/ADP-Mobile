@@ -2,14 +2,14 @@
 
 <ion-content [fullscreen]="true" color="light">
     <ion-grid>
-        <ion-row>
+        <ion-row class="ion-no-padding">
             <ion-col size="1">
                 <div class="slider-nav arrow-prev" (click)="slidePrev(sliderTwo, slideWithNav2)">
                     <ion-icon  class="custon-nav" name="chevron-back-outline" [class.disabled]="sliderTwo.isBeginningSlide"></ion-icon>
                 </div>
             </ion-col>
-            <ion-col size="10">
-                 <ion-card (click)="goToCarModelList()">
+            <ion-col size="10" class="ion-no-padding">
+                 <ion-card (click)="goToCarModelList()" class="ion-no-padding">
                     <ion-slides [options]="slideOptsTwo" #slideWithNav2 (ionSlideDidChange)="SlideDidChange(sliderTwo, slideWithNav2)">
                         <ion-slide *ngFor="let item of slidesItems">
                             <ion-card class="brand" mode="md" color="light">
@@ -27,4 +27,86 @@
             </ion-col>
         </ion-row>
     </ion-grid>
+    <div>
+        <ion-card class="p-2 border-teal-700 shadow">
+            <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
+                <li class="nav-item w-1/2">
+                    <a class="nav-link active" id="pills-home-tab" data-toggle="pill" href="#pills-home" role="tab" aria-controls="pills-home" aria-selected="true">Select your vehicle</a>
+                </li>
+                <li class="nav-item w-1/2">
+                    <a class="nav-link" id="pills-profile-tab" data-toggle="pill" href="#pills-profile" role="tab" aria-controls="pills-profile" aria-selected="false">recherche de pneu</a>
+                </li>
+            </ul>
+            <div class="tab-content" id="pills-tabContent">
+                <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
+                    <span class="text-sm text-gray-600">
+                        Selectionner votre vehicule ci-dessous pour afficher l'ensemble de ses pièces
+                    </span>
+                    <div class="form-group">
+                        <div class="p-1">
+                            <select class="form-control">
+                                <option value="" disabled selected hidden class="text-xs text-gray-100">Choississez une marque</option>
+                                <option>ffff</option>
+                                <option>ffff</option>
+                            </select>
+                        </div>
+                        <div class="p-1">
+                            <select class="form-control">
+                                <option value="" disabled selected hidden class="text-xs text-gray-100">Choississez un modèle</option>
+                                <option>ffff</option>
+                                <option>ffff</option>
+                            </select>
+                        </div>
+                        <div class="p-1">
+                            <select class="form-control">
+                                <option value="" disabled selected hidden class="text-xs text-gray-100">Choississez un type de motorisation</option>
+                                <option>ffff</option>
+                                <option>ffff</option>
+                            </select>
+                        </div>
+                        <div>
+                            <ion-button class="bg-teal-500 text-white ion-float-right rounded" fill="clear">Rechercher</ion-button>
+                        </div>
+                    </div>
+                </div>
+                <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
+                    <div class="form-group">
+                        <div class="p-1">
+                            <select class="form-control">
+                                <option value="" disabled selected hidden class="text-xs text-gray-100">Saison</option>
+                                <option>ffff</option>
+                                <option>ffff</option>
+                            </select>
+                        </div>
+                        <div class="p-1 flex flex-row justify-between">
+                           <span class="pr-1">
+                                <select class="form-control">
+                                <option value="" disabled selected hidden class="text-xs text-gray-100">largeur</option>
+                                <option>ffff</option>
+                                <option>ffff</option>
+                            </select>
+                           </span>
+                            <span>
+                                <select class="form-control">
+                                <option value="" disabled selected hidden class="text-xs text-gray-100">hauteur</option>
+                                <option>ffff</option>
+                                <option>ffff</option>
+                            </select>
+                           </span>
+                            <span class="pl-1">
+                                <select class="form-control">
+                                <option value="" disabled selected hidden class="text-xs text-gray-100">Diamètre</option>
+                                <option>ffff</option>
+                                <option>ffff</option>
+                            </select>
+                           </span>
+                        </div>
+                        <div>
+                            <ion-button class="bg-teal-500 text-white ion-float-right rounded" fill="clear">Rechercher</ion-button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </ion-card>
+    </div>
 </ion-content>

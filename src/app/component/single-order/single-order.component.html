@@ -8,7 +8,7 @@
                     <span class="text-xs text-gray-600">no</span>
                     {{ order.trackingNumber }}
                 </span>
-            <span class="">{{ order.amountTTC | currency: 'TND' }}</span>
+            <span class="text-sm">{{ order.amountTTC | currency: 'TND' }}</span>
         </div>
         <div class="flex items-center mt-3 justify-between">
             <span class="text-xs px-2 py-1 rounded-full" [ngClass]="{'bg-green-200 text-green-800': order.orderStatus === 'delivered' || order.orderStatus ==='processed',
