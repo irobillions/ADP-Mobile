@@ -13,7 +13,7 @@ import { User } from "../../models/user.model";
 import { catchError, map } from "rxjs/operators";
 
 export const LOGIN_API_ROUTE = "http://localhost:5000/clients/login";
-export const REGISTER_API_ROUTE = "http://locahost:5000/clients/register";
+export const REGISTER_API_ROUTE = "http://localhost:5000/clients/register";
 const REFRESH_API_ROUTE = environment.api_url + "/auth/refresh";
 
 class LoginResponse {
@@ -81,24 +81,17 @@ export class AuthService {
   register(
     email: string,
     password: string,
-    firstName: string,
-    lastName: string
+    password_confirmation: string,
+    name: string
   ) {
     return this.httpClient
-      .post<RegisterResponse>(REGISTER_API_ROUTE, {
+      .post<any>(REGISTER_API_ROUTE, {
         email,
         password,
-        firstName,
-        lastName,
+        password_confirmation,
+        name,
       })
-      .pipe(
-        map((response) => {
-          localStorage.setItem("accessToken", response.accessToken);
-          localStorage.setItem("refreshToken", response.refreshToken);
-          localStorage.setItem("user", JSON.stringify(response.user));
-        }),
-        catchError(this.errorHandler)
-      );
+      .pipe((_) => this.login(email, password), catchError(this.errorHandler));
   }
 
   logout() {
